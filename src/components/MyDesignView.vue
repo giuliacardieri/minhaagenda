@@ -21,7 +21,7 @@
       <li>
         <div class="li__collapsible-header collapsible-header">Formato de exibição de conteúdo</div>
         <div class="collapsible-body">
-          <p class="collapsible-body__p">o formato de exibição de conteúdo de imagens e eventos pode ser alterado.</p>
+          <p class="collapsible-body__p">O formato de exibição de conteúdo de imagens e eventos pode ser alterado.</p>
           <router-link to="/mydesign/displayformat" class="btn waves-effect collapsible-body__btn collapsible-body__btn--choose collapsible-body__btn--pink" data-type="2">Mudar formato de exibição do conteúdo</router-link>
         </div>
       </li>
@@ -32,6 +32,13 @@
 </template>
 
 <script>
+  export default {
+    data() {
+      return {
+       activeLink: 1,
+      }
+    },  
+  }
 </script>
 
 <style>
@@ -41,5 +48,9 @@
 
   .collapsible-body__btn--pink {
     background-color: var(--pink-lighten-2);
+  }
+
+  .collapsible-body__p {
+    margin-top: 0;
   }
 </style>

@@ -4,9 +4,9 @@
         <p class="app-bar-secondary__p grey-text text-darken-1">Hoje</p>
     </div>
     <div class="main__cards-wrapper">
-      <div v-for="data in this.db" class="row">
-          <div class="col s12 m6">
-            <div class="cards-wrapper__card card">
+      <div class="row">
+          <div v-for="data in this.db" v-if="data.completed == 0" class="col s12 m4">
+            <div class="cards-wrapper__card card" v-bind:class="{ card__hidden: data.completed == 1 }">
               <div class="card-image card__card-image">
                 <img :src="'./static/img/categories/' + data.category + '.jpg'" />
                 <span class="card-title">{{ data.title }}</span>
@@ -26,7 +26,7 @@
                 </p>
               </div>
               <div class="card-action">
-                <a href="#" class="card-action__btn--completed card-action__btn--indigo-text">Marcar como finalizado</a>
+                <a href="#" v-on:click="data.completed = 1" class="card-action__btn--completed card-action__btn--indigo-text">Marcar como finalizado</a>
                 <a href="#" class="card-action__btn--cancel card-action__btn--indigo-text">Cancelar</a>
               </div>
             </div>
@@ -42,7 +42,12 @@
   export default {
     data() {
       return {
-        'db': data.db
+        'db': data.db,
+      }
+    },
+    methods: {
+      completedCard: function() {
+        console.log('completou!');
       }
     }
   }
@@ -65,28 +70,30 @@
     margin-top: 0;
   }
 
-  .cards-wrapper__card:after {
-    color: var(--red);
-    content: '\e14c';
-    font-family: 'Material Icons';
-    font-size: 44pt;
-    line-height: 250px;
-    right: -75px;
-    position: absolute;
-    top: 0;
+  @media (max-width: 991px) {
+    .cards-wrapper__card:after {
+      color: var(--red);
+      content: '\e14c';
+      font-family: 'Material Icons';
+      font-size: 44pt;
+      line-height: 250px;
+      right: -75px;
+      position: absolute;
+      top: 0;
+    }
+
+    .cards-wrapper__card:before {
+      color: var(--green);
+      content: '\e876';
+      font-family: 'Material Icons';
+      font-size: 44pt;
+      line-height: 250px;
+      left: -75px;
+      position: absolute;
+    }
   }
 
-  .cards-wrapper__card:before {
-    color: var(--green);
-    content: '\e876';
-    font-family: 'Material Icons';
-    font-size: 44pt;
-    line-height: 250px;
-    left: -75px;
-    position: absolute;
-  }
-
-  .cards-wrapper__card--hidden {
+  .card__hidden {
     display: none;
   }
 

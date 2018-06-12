@@ -5,14 +5,7 @@
         <div class="nav-wrapper">
           <a href="#" class="nav-wrapper__a nav-wrapper__a--main">Minha Agenda</a>
         </div>
-      </nav>            
-      <div class="header__tabs header__tabs--1 header__tabs--hidden col s12">
-        <ul class="tabs">
-          <li class="tab col s3"><a href="#speech">Speech</a></li>
-          <li class="tab col s3"><a href="#swipe">Swipe</a></li>
-          <li class="tab col s3"><a href="#voice">Voice</a></li>
-        </ul>
-      </div>     
+      </nav>                 
       <div class="header__tabs header__tabs--2 header__tabs--hidden col s12">
         <ul class="tabs">
           <li class="tab col s3"><a href="#events">Events display</a></li>
@@ -29,19 +22,19 @@
       <nav class="footer__nav white">
         <div class="nav__nav-wrapper nav-wrapper">
           <ul class="nav-wrapper__ul">
-            <li class="ul__li" v-on:click="activate(0)" v-bind:class="{ active: activeLink == 0 }">
+            <li class="ul__li" v-on:click="activeLink = 0" v-bind:class="{ active: activeLink == 0 }">
               <router-link to="/" class="li__a">
                 <i class="material-icons a__icons">home</i>
                 <span class="a__span">Home</span>
               </router-link>
             </li>
-            <li class="ul__li" v-on:click="activate(1)" v-bind:class="{ active:  activeLink == 1 }">
+            <li class="ul__li" v-on:click="activeLink = 1" v-bind:class="{ active:  activeLink == 1 }">
               <router-link to="/mydesign" class="li__a">
                 <i class="material-icons a__icons">face</i>
                 <span class="a__span">Meu design</span>
               </router-link>
             </li>
-            <li class="ul__li" v-on:click="activate(2)" v-bind:class="{ active: activeLink == 2 }">
+            <li class="ul__li" v-on:click="activeLink = 2" v-bind:class="{ active: activeLink == 2 }">
               <router-link to="/pastevents" class="li__a">
                 <i class="material-icons a__icons">schedule</i>
                 <span class="a__span">Eventos antigos</span>
@@ -64,11 +57,6 @@
        activeLink: 0,
       }
     },  
-    methods: {
-      activate: function(el) {
-        this.activeLink = el;
-      }
-    }
   }
 </script>
 
@@ -156,4 +144,54 @@
   .a__span {
     line-height: 16px;
   }
+
+  /* collapsible */
+
+  .collapsible__li:focus, .li__collapsible-header:focus {
+    outline: 0;
+  }
+
+  .collapsible__li.chosen .collapsible-header__span {
+    display: initial;
+  } 
+
+  .collapsible-header__span {
+    display: none;
+  }
+
+  .collapsible-header__icon {
+    color: var(--pink-lighten-2);
+  }
+
+  .collapsible-header:focus {
+    outline: 0;
+  }
+
+  .collapsible-body__p {
+    margin-top: 0;
+  }
+
+  /* tabs */
+
+  .tabs__div--hidden {
+    display: none;
+  }
+
+  .tabs__ul .ul__li  .li__a:focus, .tabs__ul .ul__li .li__a:focus.active {
+    background-color: white;
+  }
+
+  /* btn user prefs */
+  .row.template__button-wrapper {
+    margin: 0 15px;
+  }
+
+  .btn-wrapper__btn-choose .span__chosen, .btn-wrapper__btn-choose.chosen .span__choose { 
+    display: none;
+  }
+
+  .btn-wrapper__btn-choose.chosen .span__chosen, .btn-wrapper__btn-choose .span__choose { 
+    display: block;
+  }
+
 </style>

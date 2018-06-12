@@ -1,6 +1,6 @@
 <template>
 	<div>      
-		<div class="header__tabs header__tabs col s12">
+		<div class="header__tabs col s12">
 		    <ul class="tabs tabs__ul" v-tabs>
 		      <li class="tab col s3 ul__li"><a class="li__a active" href="#checkbox">Checkbox</a></li>
 		      <li class="tab col s3 ul__li"><a class="li__a" href="#datepicker">Calendário</a></li>
@@ -28,7 +28,7 @@
 			            </label>
 			          </p>
 			          <div class="collapsible-body__btn-wrapper right-align">
-			            <button data-icon="checkbox-1" v-on:click="activate(0), setNewItem(0,1)" v-bind:class="{ chosen: activeElement == 0 }" class="checkbox-1 btn btn-wrapper__btn-choose waves-effect">
+			            <button v-on:click="activate(0), setNewItem(0,1)" v-bind:class="{ chosen: activeElement == 0 }" class="checkbox-1 btn btn-wrapper__btn-choose waves-effect">
 			            	<span class="span__chosen">Escolhido</span>
 			            	<span class="span__choose">Escolher</span>
 			            </button>
@@ -265,6 +265,7 @@
       return {
        activeElement: 0,
        showBody: 0,
+       activeLink: 1,
       }
     },  
     methods: {
@@ -276,39 +277,6 @@
 </script>
 
 <style>
-
-  .collapsible__li:focus, .li__collapsible-header:focus {
-    outline: 0;
-  }
-
-  .collapsible__li.chosen .collapsible-header__span {
-  	display: initial;
-  } 
-
-  .collapsible-header__span {
-  	display: none;
-  }
-
-	.tabs__div--hidden {
-		display: none;
-	}
-
-	.tabs__ul .ul__li  .li__a:focus, .tabs__ul .ul__li .li__a:focus.active {
-		background-color: white;
-	}
-
-	.collapsible-body__p {
-		margin-top: 0;
-	}
-
-	.btn-wrapper__btn-choose .span__chosen, .btn-wrapper__btn-choose.chosen .span__choose { 
-		display: none;
-	}
-
-	.btn-wrapper__btn-choose.chosen .span__chosen, .btn-wrapper__btn-choose .span__choose { 
-		display: block;
-	}
-
 	.checkbox-html:not(:checked), .checkbox-html:checked {
 		margin-top: 3px;
 		opacity: 1;
@@ -325,18 +293,6 @@
 		border: 0;
 		height: inherit;
 		width: inherit;
-	}
-
-	.collapsible-header__icon {
-		color: var(--pink-lighten-2);
-	}
-
-	.collapsible-header:focus {
-		outline: 0;
-	}
-
-	.template__button-wrapper {
-		margin: 0 15px;
 	}
 
 	.input-elem-group__input.browser-default {

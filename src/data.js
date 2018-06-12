@@ -9,7 +9,7 @@ export default {
       'location': 'Veterinário Ishizuka',
       'icon': 'pets',
       'category': 'Pets',
-      'completed': 'false'
+      'completed': 0
     },
     {
       'title': 'Limpar apartamento',
@@ -20,7 +20,7 @@ export default {
       'location': 'Meu apartamento',
       'icon': 'face',
       'category': 'Personal',
-      'completed': 'false'
+      'completed': 0
     }
   ]
 }
