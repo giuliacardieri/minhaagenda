@@ -1,49 +1,6 @@
 <template>
   <div id="app">
-    <header>
-      <nav class="header__app-bar">
-        <div class="nav-wrapper">
-          <a href="#" class="nav-wrapper__a nav-wrapper__a--main">Minha Agenda</a>
-        </div>
-      </nav>                 
-      <div class="header__tabs header__tabs--2 header__tabs--hidden col s12">
-        <ul class="tabs">
-          <li class="tab col s3"><a href="#events">Events display</a></li>
-          <li class="tab col s3"><a href="#images">Images</a></li>
-        </ul>
-      </div>
-    </header>
-
-    <main class="app__main">
-      <router-view></router-view>
-    </main>
-
-    <footer class="footer">
-      <nav class="footer__nav white">
-        <div class="nav__nav-wrapper nav-wrapper">
-          <ul class="nav-wrapper__ul">
-            <li class="ul__li" v-on:click="activeLink = 0" v-bind:class="{ active: activeLink == 0 }">
-              <router-link to="/" class="li__a">
-                <i class="material-icons a__icons">home</i>
-                <span class="a__span">Home</span>
-              </router-link>
-            </li>
-            <li class="ul__li" v-on:click="activeLink = 1" v-bind:class="{ active:  activeLink == 1 }">
-              <router-link to="/mydesign" class="li__a">
-                <i class="material-icons a__icons">face</i>
-                <span class="a__span">Meu design</span>
-              </router-link>
-            </li>
-            <li class="ul__li" v-on:click="activeLink = 2" v-bind:class="{ active: activeLink == 2 }">
-              <router-link to="/pastevents" class="li__a">
-                <i class="material-icons a__icons">schedule</i>
-                <span class="a__span">Eventos antigos</span>
-              </router-link>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </footer>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -78,6 +35,10 @@
     --grey-darken-2: #616161;
   }
 
+  .hidden {
+    display: none;
+  }
+
   .app__main {
     margin-bottom: 56px;
     overflow-x: hidden;
@@ -87,6 +48,13 @@
     font-size: 20px;
     margin-left: 16px;
     text-align: left;
+  }
+
+  .material-icons.input-field__speech-icon {
+    color: var(--grey-darken-2);
+    bottom: 10px;
+    position: absolute;
+    right: 10px;
   }
 
   /* tabs */

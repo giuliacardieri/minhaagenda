@@ -156,7 +156,7 @@
 	    </div>
 	  </div>
 		<div class="row template__button-wrapper">
-			<button class="btn button-wrapper__btn--back button-wrapper__btn--pink">Back</button>
+			<router-link to="/mydesign" class="btn button-wrapper__btn--back button-wrapper__btn--pink">Back</router-link>
 		</div>
 	</div>
 </template>

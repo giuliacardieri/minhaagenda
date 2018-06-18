@@ -162,7 +162,7 @@
 			        </div>
 			        <div class="collapsible-body">
 			          <div class="input-field">    
-			            <select v-select>
+			            <select class="select-elem--material" v-select>
 			              <option value="" disabled selected>Escolha sua opção</option>
 			              <option value="1">Opção 1</option>
 			              <option value="2">Opção 2</option>
@@ -186,7 +186,7 @@
 			        </div>
 			        <div class="collapsible-body">
 			          <div class="input-field">
-			            <select class="browser-default">
+			            <select class="select-elem--browser-default browser-default">
 			              <option value="" disabled selected>Escolha sua opção</option>
 			              <option value="1">Opção 1</option>
 			              <option value="2">Opção 2</option>
@@ -252,7 +252,7 @@
 			</div>
 		</div>
 		<div class="row template__button-wrapper">
-			<button class="btn button-wrapper__btn--back button-wrapper__btn--pink">Back</button>
+			<router-link to="/mydesign" class="btn button-wrapper__btn--back button-wrapper__btn--pink">Back</router-link>
 		</div>
 	</div>
 </template>
