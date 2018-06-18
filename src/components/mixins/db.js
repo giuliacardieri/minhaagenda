@@ -1,10 +1,11 @@
+import moment from 'moment'
 export const db = {  
   methods: {
     filterJSONByDate: function(array) {
       var today = moment().format('YYYY-MM-DD');
       var new_db = [];
 
-      for (var i = 0; i<Object.keys(array).length; i++) {
+      for (var i = 0; i < Object.keys(array).length; i++) {
         if (array[i].date === today)
           new_db.push(array[i])
       }
@@ -25,7 +26,7 @@ export const db = {
         var db = [
           {
             'title': 'Levar mila ao veterinário',
-            'date': '2018-06-07',
+            'date': '2018-06-18',
             'time_start': '17:00',
             'time_end': '19:00',
             'image': 'https://github.com/giuliacardieri/agenda-pwa/blob/master/images/pets.jpg?raw=true',
@@ -36,7 +37,7 @@ export const db = {
           },
           {
             'title': 'Limpar apartamento',
-            'date': '2018-06-07',
+            'date': '2018-06-18',
             'time_start': '10:00',
             'time_end': '12:00',
             'image': 'https://github.com/giuliacardieri/agenda-pwa/blob/master/images/exercise.jpg?raw=true',
@@ -52,7 +53,7 @@ export const db = {
     getDB: function() {
       if (!localStorage.getItem('agenda_db'))
         this.setDB();
-      return JSON.parse(localStorage.getItem('agenda_db'));
+      return this.filterJSONByDate(JSON.parse(localStorage.getItem('agenda_db')));
     }
   }
 }
