@@ -165,6 +165,12 @@
           this.$router.push('/');
           M.toast({html: 'Evento adicionado com sucesso'});
         }
+      },
+      toggleDatepicker: function(action) {
+        if (!action)
+          document.getElementById('date' + this.user[1].value).disabled = true;
+        else
+          document.getElementById('date' + this.user[1].value).disabled = false;
       }
   	},
     mounted() {
@@ -182,6 +188,18 @@
 
       document.getElementById('allday1').onchange = (e) => {
         this.data.allday1 = document.getElementById('allday1').checked;
+        if (e.target.checked)
+          this.toggleDatepicker(0);
+        else
+          this.toggleDatepicker(1);
+
+      };
+
+      document.getElementById('allday2').onchange = (e) => {
+        if (e.target.checked)
+          this.toggleDatepicker(0);
+        else
+          this.toggleDatepicker(1);
       };
     }
   }  
