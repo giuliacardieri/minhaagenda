@@ -102,8 +102,8 @@ const webpackConfig = merge(baseWebpackConfig, {
     new SWPrecacheWebpackPlugin({
       cacheId: 'agenda',
       filename: 'service-worker.js',
-      staticFileGlobs: ['dist/**/*.{js,html,css}'],
-      minify: true,
+      staticFileGlobs: ['dist/**/*.{js,html,css,jpg}'],
+      minify: false,
       stripPrefix: 'dist/'
     })
   ]

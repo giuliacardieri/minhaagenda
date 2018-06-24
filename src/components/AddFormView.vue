@@ -74,9 +74,8 @@
           </div>
           <div class="row">
             <div class="input-field col s12" v-bind:class="{ 'hidden': user[3].value == 2}">
-              <select name="category" class="select-elem--material" v-select v-model="data.category1">
+              <select id="category1" name="category" class="select-elem--material" v-select v-model="data.category1">
                 <option value="" disabled selected>Escolha sua categoria</option>
-                <option value="Diabetes">Diabetes</option>
                 <option value="Exercício">Exercício</option>
                 <option value="Família">Família</option>
                 <option value="Casa">Casa</option>
@@ -91,12 +90,11 @@
                 <option value="Trabalho">Trabalho</option>
                 <option value="Viagem">Viagem</option>
               </select>
-              <label class="select-elem__label">Categoria</label>
+              <label for="category1" class="select-elem__label">Categoria</label>
             </div>
             <div class="input-field col s12" v-bind:class="{ 'hidden': user[3].value == 1}">
               <select name="category" class="select-elem--browser-default browser-default" v-model="data.category2">
                 <option value="" disabled selected>Escolha sua categoria</option>
-                <option value="Diabetes">Diabetes</option>
                 <option value="Exercício">Exercício</option>
                 <option value="Família">Família</option>
                 <option value="Casa">Casa</option>
@@ -166,11 +164,15 @@
           M.toast({html: 'Evento adicionado com sucesso'});
         }
       },
-      toggleDatepicker: function(action) {
-        if (!action)
-          document.getElementById('date' + this.user[1].value).disabled = true;
-        else
-          document.getElementById('date' + this.user[1].value).disabled = false;
+      toggleTimepicker: function(action) {
+        if (!action) {
+          document.getElementById('time_from' + this.user[4].value).disabled = true;
+          document.getElementById('time_to' + this.user[4].value).disabled = true;
+        }
+        else {
+          document.getElementById('time_from' + this.user[4].value).disabled = false;
+          document.getElementById('time_to' + this.user[4].value).disabled = false;
+        }
       }
   	},
     mounted() {
@@ -186,20 +188,25 @@
         this.data.date1 = document.getElementById('date1').value;
       };
 
+      document.getElementsByClassName('select-elem--material')[0].onchange = () => {
+        this.data.category1 = document.getElementsByClassName('select-elem--material')[0].value;
+        console.log(document.getElementsByClassName('select-elem--material')[0].value);
+      };
+
       document.getElementById('allday1').onchange = (e) => {
         this.data.allday1 = document.getElementById('allday1').checked;
         if (e.target.checked)
-          this.toggleDatepicker(0);
+          this.toggleTimepicker(0);
         else
-          this.toggleDatepicker(1);
+          this.toggleTimepicker(1);
 
       };
 
       document.getElementById('allday2').onchange = (e) => {
         if (e.target.checked)
-          this.toggleDatepicker(0);
+          this.toggleTimepicker(0);
         else
-          this.toggleDatepicker(1);
+          this.toggleTimepicker(1);
       };
     }
   }  

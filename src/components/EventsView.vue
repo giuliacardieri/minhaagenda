@@ -89,7 +89,6 @@
         }, 1000);
       },
       isEmpty: function() {
-        console.log(this.areAllDone())
         return this.areAllDone();
       }
     },
