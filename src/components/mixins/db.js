@@ -43,19 +43,21 @@ export const db = {
             'icon': 'pets',
             'category': 'Pets',
             'completed': 0,
-            'canceled': 0
+            'canceled': 0,
+            'allday': false
           },
           {
             'id': 1,
             'title': 'Limpar apartamento',
             'date': '2018-06-24',
-            'time_start': '10:00',
-            'time_end': '12:00',
+            'time_start': '',
+            'time_end': '',
             'location': 'Meu apartamento',
             'icon': 'home',
             'category': 'Casa',
             'completed': 0,
-            'canceled': 0
+            'canceled': 0,
+            'allday': true,
           },
         ];
         localStorage.setItem('agenda_db', JSON.stringify(db));
@@ -76,12 +78,16 @@ export const db = {
         final_data.completed = 0;
         final_data.canceled =  0;
 
-        if (user[1].value == 1) {
-          final_data.date = moment().format('YYYY-MM-DD', data.date1);;
-        } else {
-          final_data.date = data.date2;
-        }
+        if (user[0].value == 1)
+          final_data.allday = data.allday1;
+        else 
+          final_data.allday = data.allday2;
 
+        if (user[1].value == 1)
+          final_data.date = moment().format('YYYY-MM-DD', data.date1);
+        else
+          final_data.date = data.date2;
+        
         if (user[4].value == 1) {
           final_data.time_start = data.time_start1;
           final_data.time_end = data.time_end1;

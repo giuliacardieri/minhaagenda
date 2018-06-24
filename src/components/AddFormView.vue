@@ -51,20 +51,20 @@
               </div>
             </div>
           </div>
-<!--           <div class="row checkbox-elem--material" v-bind:class="{ 'hidden': user[0].value == 2}">
+          <div class="row checkbox-elem--material" v-bind:class="{ 'hidden': user[0].value == 2}">
             <p class="col s6">
-              <label for="all_day">
-                <input type="checkbox" name="all_day" id="all_day" v-model="completed" />
+              <label for="allday1">
+                <input type="checkbox" name="allday1" id="allday1" v-model="data.allday1" />
                 <span>Dia todo</span>
               </label>
             </p>
           </div>
           <div class="row checkbox-elem--browser-default" v-bind:class="{ 'hidden': user[0].value == 1}">
             <div class="col s12">
-              <input type="checkbox" name="all_day" id="all_day" class="checkbox-html" v-model="completed/>
-              <label for="all_day">Dia todo</label>
+              <input type="checkbox" name="allday2" id="allday2" class="checkbox-html" v-model="data.allday2" />
+              <label for="allday2">Dia todo</label>
             </div>
-          </div> -->
+          </div>
           <div class="row">
             <div class="input-field input-elem-group col s12">
               <input id="location" name="location" type="text" class="validate input-elem-group__input" v-bind:class="{ 'browser-default': user[2].value == 2}" v-model="data.location" required>
@@ -143,7 +143,9 @@
           'time_end2': '',
           'location': '',
           'category1': '',
-          'category2': ''
+          'category2': '',
+          'allday1': 0,
+          'allday2': 0,
         }
       }
     },
@@ -155,7 +157,7 @@
         var text = this.startSpeech(element);
       },
       isValid: function() {
-        return ((this.data.title != '') && (this.data.date1 != '' || this.data.date2 != '') && (this.data.time_from1 != '' || this.data.time_from2 != '') && (this.data.time_to1 != '' || this.data.time_to2 != '') && (this.data.location != '') && (this.data.category1 != '' || this.data.category2 != ''));
+        return ((this.data.title != '') && ((this.data.date1 != '' || this.data.allday1 != 0) || (this.data.date2 != '' || this.data.allday2 != 0)) && (this.data.time_from1 != '' || this.data.time_from2 != '') && (this.data.time_to1 != '' || this.data.time_to2 != '') && (this.data.location != '') && (this.data.category1 != '' || this.data.category2 != ''));
       },
       submit: function() {  
         if (this.isValid()) {
@@ -168,17 +170,18 @@
     mounted() {
       document.getElementById('time_from1').onchange = () => {
         this.data.time_start1 = document.getElementById('time_from1').value;
-        console.log('from1');
       };
 
       document.getElementById('time_to1').onchange = () => {
         this.data.time_end1 = document.getElementById('time_to1').value;
-        console.log('from2');
       };
 
       document.getElementById('date1').onchange = () => {
         this.data.date1 = document.getElementById('date1').value;
-        console.log('date1');
+      };
+
+      document.getElementById('allday1').onchange = (e) => {
+        this.data.allday1 = document.getElementById('allday1').checked;
       };
     }
   }  
@@ -219,4 +222,22 @@
 		transform: translateY(12px) scale(1);
 		transform-origin: 0 0;
 	}
+
+  .checkbox-html:not(:checked), .checkbox-html:checked {
+    margin-top: 3px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .checkbox-html + label {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    padding-left: 20px;
+  }
+
+  .checkbox-html + label:before, .checkbox-html:not(.filled-in) + label:after {
+    border: 0;
+    height: inherit;
+    width: inherit;
+  }
 </style>

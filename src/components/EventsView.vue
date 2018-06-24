@@ -19,10 +19,15 @@
                   </span>
                 </div>
                 <div class="card__card-content card-content">
-                  <p>
+                  <p v-if="data.allday">
                     <i class="material-icons p__icon">schedule</i>
-                      {{data.time_start}} - {{data.time_end}}
-                      <i class="material-icons voice-icon" v-on:click="speechSynthesis(`Horário: ${data.time_start} até ${data.time_end}`)" v-bind:class="{ hidden: user[8].value == 1 }">volume_up</i>
+                    O dia inteiro
+                    <i class="material-icons voice-icon" v-on:click="speechSynthesis(`Horário: o dia inteiro`)" v-bind:class="{ hidden: user[8].value == 1 }">volume_up</i>
+                  </p>
+                  <p v-if="data.time_start && data.time_end">
+                    <i class="material-icons p__icon">schedule</i>
+                    {{data.time_start}} - {{data.time_end}}
+                    <i class="material-icons voice-icon" v-on:click="speechSynthesis(`Horário: ${data.time_start} até ${data.time_end}`)" v-bind:class="{ hidden: user[8].value == 1 }">volume_up</i>
                   </p>
                   <p>
                     <i class="material-icons p__icon">room</i>
