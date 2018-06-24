@@ -26,24 +26,8 @@ export const userprefs = {
     setNewItem: function (id, value) {
       var user;
       user = this.getUser();
-      // check if id exists, if not create it and then setuser
       user[id].value = value;
       this.setUser(JSON.stringify(user));
-    },
-    userPreferencesDesign: function() {
-
-
-      // if (user[7].value == 2) {
-      //   document.getElementsByClassName('.card__card-image:not(.card__card-image--test)').classList.add('card__card-image--hidden');
-      // } else if (user[7].value == 1) {
-      //   document.getElementsByClassName('.card__card-image').classList.remove('card__card-image--hidden');
-      // }
-
-      // if (user[9].value == 2) {
-      //   document.getElementsByClassName('.card').classList.add('swipe-elem');
-      // } else if (user[9].value == 1) {
-      //   document.getElementsByClassName('.card').classList.remove('swipe-elem');
-      // }
     }
   }
 } 

@@ -13,7 +13,7 @@
 			<div id="checkbox" class="tabs__div col s12">
 			  <div class="row">
 			    <ul class="collapsible" v-collapsible>
-			      <li class="collapsible__li checkbox__type1" v-on:click="showBody = 0" v-bind:class="{ chosen: activeElement == 0,  active: showBody == 0 }">
+			      <li class="collapsible__li checkbox__type1" v-on:click="showBody = 0" v-bind:class="{ chosen: user[0].value === 1,  active: showBody == 0 }">
 			        <div class="li__collapsible-header collapsible-header">
 			          <span class="collapsible-header__span-checkbox-1 collapsible-header__span">
 			            <i class="material-icons collapsible-header__icon">done</i>
@@ -28,14 +28,14 @@
 			            </label>
 			          </p>
 			          <div class="collapsible-body__btn-wrapper right-align">
-			            <button v-on:click="activate(0), setNewItem(0,1)" v-bind:class="{ chosen: activeElement == 0 }" class="checkbox-1 btn btn-wrapper__btn-choose waves-effect">
+			            <button v-on:click="activate(0,1)" v-bind:class="{ chosen: user[0].value === 1 }" class="checkbox-1 btn btn-wrapper__btn-choose waves-effect">
 			            	<span class="span__chosen">Escolhido</span>
 			            	<span class="span__choose">Escolher</span>
 			            </button>
 			          </div>
 			        </div>
 			      </li>
-			      <li class="collapsible__li checkbox__type2" v-on:click="showBody = 1" v-bind:class="{ chosen: activeElement == 1, active: showBody == 1 }">
+			      <li class="collapsible__li checkbox__type2" v-on:click="showBody = 1" v-bind:class="{ chosen: user[0].value === 2, active: showBody == 1 }">
 			        <div class="collapsible-header">
 			          <span class="collapsible-header__span-checkbox-2 collapsible-header__span">
 			            <i class="material-icons collapsible-header__icon">done</i>
@@ -48,7 +48,7 @@
 			            <label for="checkbox-type2">Checkbox</label>
 			          </div>
 			          <div class="collapsible-body__btn-wrapper right-align">
-			            <button v-on:click="activate(1), setNewItem(0,2)" v-bind:class="{ chosen: activeElement == 1 }" class="checkbox-2 btn btn-wrapper__btn-choose  waves-effect">
+			            <button v-on:click="activate(0,2)" v-bind:class="{ chosen: user[0].value === 2 }" class="checkbox-2 btn btn-wrapper__btn-choose  waves-effect">
 			            	<span class="span__chosen">Escolhido</span>
 			            	<span class="span__choose">Escolher</span>
 			            </button>
@@ -61,7 +61,7 @@
 			<div id="datepicker" class="tabs__div col s12">
 			  <div class="row">
 			    <ul class="collapsible" v-collapsible>
-			      <li class="collapsible__li datepicker__type1" v-on:click="showBody = 0" v-bind:class="{ chosen: activeElement == 0,  active: showBody == 0 }">
+			      <li class="collapsible__li datepicker__type1" v-on:click="showBody = 0" v-bind:class="{ chosen: user[1].value === 1,  active: showBody == 2 }">
 			        <div class="li__collapsible-header collapsible-header">
 			          <span class="collapsible-header__span-datepicker-1 collapsible-header__span">
 			            <i class="material-icons collapsible-header__icon">done</i>
@@ -74,14 +74,14 @@
 			            <label for="datepicker-type1">Data</label>
 			          </div>
 			          <div class="right-align">
-			            <button v-on:click="activate(0), setNewItem(1,1)" v-bind:class="{ chosen: activeElement == 0 }" class="datepicker-1 btn btn-wrapper__btn-choose waves-effect">
+			            <button v-on:click="activate(1,1)" v-bind:class="{ chosen: user[1].value === 1 }" class="datepicker-1 btn btn-wrapper__btn-choose waves-effect">
 			            	<span class="span__chosen">Escolhido</span>
 			            	<span class="span__choose">Escolher</span>
 			            </button>
 			          </div>
 			        </div>
 			      </li>
-			      <li class="collapsible__li datepicker__type2" v-on:click="showBody = 1" v-bind:class="{ chosen: activeElement == 1,  active: showBody == 1 }">
+			      <li class="collapsible__li datepicker__type2" v-on:click="showBody = 1" v-bind:class="{ chosen: user[1].value === 2,  active: showBody == 3 }">
 			        <div class="li__collapsible-header collapsible-header">
 			          <span class="collapsible-header__span-datepicker-2 collapsible-header__span">
 			            <i class="material-icons collapsible-header__icon">done</i>
@@ -94,7 +94,7 @@
 			            <label for="datepicker-type2">Data</label>
 			          </div>
 			          <div class="right-align">
-			            <button v-on:click="activate(1), setNewItem(1,2)" v-bind:class="{ chosen: activeElement == 1 }" class="datepicker-2 btn btn-wrapper__btn-choose waves-effect">
+			            <button v-on:click="activate(1,2)" v-bind:class="{ chosen: user[1].value === 2 }" class="datepicker-2 btn btn-wrapper__btn-choose waves-effect">
 			            	<span class="span__chosen">Escolhido</span>
 			            	<span class="span__choose">Escolher</span>
 			            </button>
@@ -107,7 +107,7 @@
 			<div id="input" class="tabs__div col s12">
 			  <div class="row">
 			    <ul class="collapsible" v-collapsible>
-			      <li class="collapsible__li input__type1" v-on:click="showBody = 0" v-bind:class="{ chosen: activeElement == 0,  active: showBody == 0 }">
+			      <li class="collapsible__li input__type1" v-on:click="showBody = 0" v-bind:class="{ chosen: user[2].value === 1, active: showBody == 4 }">
 			        <div class="li__collapsible-header collapsible-header">
 			          <span class="collapsible-header__span-input-1 collapsible-header__span">
 			            <i class="material-icons collapsible-header__icon">done</i>
@@ -120,14 +120,14 @@
 			            <label for="input-type1">Texto</label>
 			          </div>
 			          <div class="right-align">
-			            <button v-on:click="activate(0), setNewItem(2,1)" v-bind:class="{ chosen: activeElement == 0 }" class="input-1 btn btn-wrapper__btn-choose waves-effect">
+			            <button v-on:click="activate(2,1)" v-bind:class="{ chosen: user[2].value === 1 }" class="input-1 btn btn-wrapper__btn-choose waves-effect">
 			            	<span class="span__chosen">Escolhido</span>
 			            	<span class="span__choose">Escolher</span>
 			            </button>
 			          </div>
 			        </div>
 			      </li>
-			      <li class="collapsible__li input__type2" v-on:click="showBody = 1" v-bind:class="{ chosen: activeElement == 1,  active: showBody == 1 }">
+			      <li class="collapsible__li input__type2" v-on:click="showBody = 1" v-bind:class="{ chosen: user[2].value === 2, active: showBody == 5 }">
 			        <div class="li__collapsible-header collapsible-header">
 			          <span class="collapsible-header__span-input-2 collapsible-header__span">
 			            <i class="material-icons collapsible-header__icon">done</i>
@@ -140,7 +140,7 @@
 			            <label for="input-type2" class="input-elem-group__label input-test browser-default">Texto</label>
 			          </div>
 			          <div class="right-align">
-			            <button v-on:click="activate(1), setNewItem(2,2)" v-bind:class="{ chosen: activeElement == 1 }" class="input-2 btn btn-wrapper__btn-choose waves-effect">
+			            <button v-on:click="activate(2,2)" v-bind:class="{ chosen: user[2].value === 2 }" class="input-2 btn btn-wrapper__btn-choose waves-effect">
 			            	<span class="span__chosen">Escolhido</span>
 			            	<span class="span__choose">Escolher</span>
 			            </button>
@@ -153,7 +153,7 @@
 			<div id="select" class="tabs__div col s12">
 			  <div class="row">
 			    <ul class="collapsible" v-collapsible>
-			      <li class="collapsible__li select__type1" v-on:click="showBody = 0" v-bind:class="{ chosen: activeElement == 0,  active: showBody == 0 }">
+			      <li class="collapsible__li select__type1" v-on:click="showBody = 0" v-bind:class="{ chosen: user[3].value === 1,  active: showBody == 6 }">
 			        <div class="li__collapsible-header collapsible-header">
 			          <span class="collapsible-header__span-select-1 collapsible-header__span">
 			            <i class="material-icons collapsible-header__icon">done</i>
@@ -170,14 +170,14 @@
 			            </select>
 			          </div>
 			          <div class="right-align">
-			            <button v-on:click="activate(0), setNewItem(3,1)" v-bind:class="{ chosen: activeElement == 0 }" class="select-1 btn btn-wrapper__btn-choose waves-effect">
+			            <button v-on:click="activate(3,1)" v-bind:class="{ chosen: user[3].value === 1 }" class="select-1 btn btn-wrapper__btn-choose waves-effect">
 			            	<span class="span__chosen">Escolhido</span>
 			            	<span class="span__choose">Escolher</span>
 			            </button>
 			          </div>
 			        </div>
 			      </li>
-			      <li class="collapsible__li select__type2" v-on:click="showBody = 1" v-bind:class="{ chosen: activeElement == 1,  active: showBody == 1 }">
+			      <li class="collapsible__li select__type2" v-on:click="showBody = 1" v-bind:class="{ chosen: user[3].value === 2,  active: showBody == 7 }">
 			        <div class="li__collapsible-header collapsible-header">
 			          <span class="collapsible-header__span-select-2 collapsible-header__span">
 			            <i class="material-icons collapsible-header__icon">done</i>
@@ -194,7 +194,7 @@
 			            </select>
 			          </div>
 			          <div class="right-align">
-			            <button v-on:click="activate(1), setNewItem(3,2)" v-bind:class="{ chosen: activeElement == 1 }" class="select-2 btn btn-wrapper__btn-choose  waves-effect">
+			            <button v-on:click="activate(3,2)" v-bind:class="{ chosen: user[3].value === 2 }" class="select-2 btn btn-wrapper__btn-choose  waves-effect">
 			            	<span class="span__chosen">Escolhido</span>
 			            	<span class="span__choose">Escolher</span>
 			            </button>
@@ -207,7 +207,7 @@
 			<div id="timepicker" class="tabs__div col s12">
 			  <div class="row">
 			    <ul class="collapsible" v-collapsible>
-			      <li class="collapsible__li timepicker__type1" v-on:click="showBody = 0" v-bind:class="{ chosen: activeElement == 0,  active: showBody == 0 }">
+			      <li class="collapsible__li timepicker__type1" v-on:click="showBody = 0" v-bind:class="{ chosen: user[4].value === 1,  active: showBody == 8 }">
 			        <div class="li__collapsible-header collapsible-header">
 			          <span class="collapsible-header__span-timepicker-1 collapsible-header__span">
 			            <i class="material-icons collapsible-header__icon">done</i>
@@ -220,14 +220,14 @@
 			            <label for="timepicker-type1">Horário</label>
 			          </div>
 			          <div class="right-align">
-			            <button v-on:click="activate(0), setNewItem(4,1)" v-bind:class="{ chosen: activeElement == 0 }" class="timepicker-1 btn btn-wrapper__btn-choose waves-effect">
+			            <button v-on:click="activate(4,1)" v-bind:class="{ chosen: user[4].value === 1 }" class="timepicker-1 btn btn-wrapper__btn-choose waves-effect">
 			            	<span class="span__chosen">Escolhido</span>
 			            	<span class="span__choose">Escolher</span>
 			           	</button>
 			          </div>
 			        </div>
 			      </li>
-			      <li class="collapsible__li timepicker__type2" v-on:click="showBody = 1" v-bind:class="{ chosen: activeElement == 1,  active: showBody == 1 }">
+			      <li class="collapsible__li timepicker__type2" v-on:click="showBody = 1" v-bind:class="{ chosen: user[4].value === 2,  active: showBody == 9 }">
 			        <div class="li__collapsible-header collapsible-header">
 			          <span class="collapsible-header__span-timepicker-2 collapsible-header__span">
 			            <i class="material-icons collapsible-header__icon">done</i>
@@ -240,7 +240,7 @@
 			            <label for="timepicker-type2">Horário</label>
 			          </div>
 			          <div class="right-align">
-			            <button v-on:click="activate(1), setNewItem(4,2)" v-bind:class="{ chosen: activeElement == 1 }" class="timepicker-2 btn btn-wrapper__btn-choose waves-effect">
+			            <button v-on:click="activate(4,2)" v-bind:class="{ chosen: user[4].value === 2}" class="timepicker-2 btn btn-wrapper__btn-choose waves-effect">
 			            	<span class="span__chosen">Escolhido</span>
 			            	<span class="span__choose">Escolher</span>
 			            </button>
@@ -263,16 +263,18 @@
   	mixins: [ userprefs ],
     data() {
       return {
-       activeElement: 0,
-       showBody: 0,
+       showBody: null,
        activeLink: 1,
+       user: this.getUser(),
       }
     },  
     methods: {
-      activate: function(el) {
-        this.activeElement = el;
+      activate: function(el, value) {
+      	this.showBody = value;
+        this.user[el].value = value;
+        this.setNewItem(el, value);
       }
-    }
+    },
   }
 </script>
 

@@ -39,6 +39,10 @@
     display: none;
   }
 
+  .material-icons {
+    vertical-align: middle;
+  }
+
   .app__main {
     margin-bottom: 56px;
     overflow-x: hidden;
@@ -79,7 +83,7 @@
   }
 
   .ul__li {
-    width: calc(100%/3);
+    width: calc(100%/2);
   }
 
   .nav-wrapper__ul .ul__li.active {
@@ -160,6 +164,33 @@
 
   .btn-wrapper__btn-choose.chosen .span__chosen, .btn-wrapper__btn-choose .span__choose { 
     display: block;
+  }
+
+  /* cards swipe actions */
+  .card.swipeleft {
+    animation: swipeleft 1s ease-in 1;
+  }
+
+  .card.swiperight {
+    animation: swiperight 1s ease-in 1;
+  }
+
+  .card.swiperight:before {
+    opacity: 1;
+  }
+
+  .card.swipeleft:after {
+    opacity: 1;
+  }
+
+  @keyframes swipeleft {
+    from { left: 0; }
+    to { left: -100vw; }
+  }
+
+  @keyframes swiperight {
+    from { right: 0; }
+    to { right: -100vw; }
   }
 
 </style>

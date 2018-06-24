@@ -10,7 +10,7 @@
       <div id="events" class="tabs__div col s12">
         <div class="row">
           <ul class="collapsible" v-collapsible>
-            <li class="collapsible__li events__type1" v-on:click="showBody = 0" v-bind:class="{ chosen: activeElement == 0,  active: showBody == 0 }">
+            <li class="collapsible__li events__type1" v-on:click="showBody = 0" v-bind:class="{ chosen: user[6].value === 1,  active: showBody == 0 }">
               <div class="li__collapsible-header collapsible-header">
                 <span class="collapsible-header__span-events-1 collapsible-header__span">
                   <i class="material-icons collapsible-header__icon">done</i>
@@ -46,14 +46,14 @@
                   </div>
                 </div>
                 <div class="right-align">
-                  <button v-on:click="activate(0), setNewItem(6,1)" v-bind:class="{ chosen: activeElement == 0 }"  class="events-1 btn btn-wrapper__btn-choose waves-effect">
+                  <button v-on:click="activate(6,1)" v-bind:class="{ chosen: user[6].value === 1 }"  class="events-1 btn btn-wrapper__btn-choose waves-effect">
 			            	<span class="span__chosen">Escolhido</span>
 			            	<span class="span__choose">Escolher</span>
 			            </button>
                 </div>
               </div>
             </li>
-            <li class="events__type2" v-on:click="showBody = 1" v-bind:class="{ chosen: activeElement == 1,  active: showBody == 1 }">
+            <li class="collapsible__li events__type2" v-on:click="showBody = 1" v-bind:class="{ chosen: user[6].value === 2,  active: showBody == 1 }">
               <div class="li__collapsible-header collapsible-header">
                 <span class="collapsible-header__span-events-2 collapsible-header__span">
                   <i class="material-icons collapsible-header__icon">done</i>
@@ -86,7 +86,7 @@
 							    </li>
 						    </ul>
                 <div class="right-align">
-                  <button v-on:click="activate(1), setNewItem(6,2)" v-bind:class="{ chosen: activeElement == 1 }"  class="events-1 btn btn-wrapper__btn-choose waves-effect">
+                  <button v-on:click="activate(6,2)" v-bind:class="{ chosen: user[6].value === 2 }"  class="events-1 btn btn-wrapper__btn-choose waves-effect">
 			            	<span class="span__chosen">Escolhido</span>
 			            	<span class="span__choose">Escolher</span>
 			            </button>
@@ -99,7 +99,7 @@
       <div id="images" class="tabs__div col s12">
         <div class="row">
           <ul class="collapsible" v-collapsible>
-            <li class="collapsible__li images__type1" v-on:click="showBody = 0" v-bind:class="{ chosen: activeElement == 0,  active: showBody == 0 }">
+            <li class="collapsible__li images__type1" v-on:click="showBody = 2" v-bind:class="{ chosen: user[7].value === 1,  active: showBody == 2 }">
               <div class="li__collapsible-header collapsible-header">
                 <span class="collapsible-header__span-images-1 collapsible-header__span">
                   <i class="material-icons collapsible-header__icon">done</i>
@@ -111,7 +111,7 @@
                   <div class="col s12 m6">
                     <div class="card">
                       <div class="card-image card__card-image card__card-image--test">
-                        <img src="static/img/categories/personal.jpg" alt="card image example, a living room in an apartment. An open door with curtains showing a partial view of a landscape on daylight.">
+                        <img src="static/img/categories/casa.jpg" alt="card image example, a living room in an apartment. An open door with curtains showing a partial view of a landscape on daylight.">
                         <span class="card-title">Um cartão</span>
                       </div>
                       <div class="card-content">
@@ -121,14 +121,14 @@
                   </div>
                 </div>
                 <div class="right-align">
-                  <button v-on:click="activate(0), setNewItem(7,1)" v-bind:class="{ chosen: activeElement == 0 }"  class="images-1 btn btn-wrapper__btn-choose waves-effect">
+                  <button v-on:click="activate(7,1)" v-bind:class="{ chosen: user[7].value === 1 }"  class="images-1 btn btn-wrapper__btn-choose waves-effect">
 		            	<span class="span__chosen">Escolhido</span>
 		            	<span class="span__choose">Escolher</span>
 		            </button>
                 </div>
               </div>
             </li>
-            <li class="collapsible__li image__type2" v-on:click="showBody = 1" v-bind:class="{ chosen: activeElement == 1,  active: showBody == 1 }">
+            <li class="collapsible__li image__type2" v-on:click="showBody = 3" v-bind:class="{ chosen: user[7].value == 2,  active: showBody == 3 }">
               <div class="li__collapsible-header collapsible-header">
                 <span class="collapsible-header__span-images-2 collapsible-header__span">
                   <i class="material-icons collapsible-header__icon">done</i>
@@ -147,7 +147,7 @@
                   </div>
                 </div>
                 <div class="right-align">
-                  <button v-on:click="activate(1), setNewItem(7,2)" v-bind:class="{ chosen: activeElement == 1 }"  class="events-2 btn btn-wrapper__btn-choose waves-effect">
+                  <button v-on:click="activate(7,2)" v-bind:class="{ chosen: user[7].value === 2 }"  class="events-2 btn btn-wrapper__btn-choose waves-effect">
 		            	<span class="span__chosen">Escolhido</span>
 		            	<span class="span__choose">Escolher</span>
 		            </button>
@@ -170,14 +170,16 @@
   	mixins: [ userprefs ],
     data() {
       return {
-       activeElement: 0,
-       showBody: 0,
+       showBody: null,
        activeLink: 1,
+       user: this.getUser()
       }
     },  
     methods: {
-      activate: function(el) {
-        this.activeElement = el;
+      activate: function(el, value) {
+        this.showBody = value;
+        this.user[el].value = value;
+        this.setNewItem(el, value);
       }
     }
   }

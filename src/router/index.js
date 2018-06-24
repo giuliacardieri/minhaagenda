@@ -18,6 +18,7 @@ export default new Router({
       children: [
         {
           path: '/',
+          name: 'events',
           component: EventsView
         },     
         {

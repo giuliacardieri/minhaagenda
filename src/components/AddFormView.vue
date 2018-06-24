@@ -12,110 +12,110 @@
         <form class="main__form col s12">
           <div class="row">
             <div class="input-field input-elem-group col s12">
-              <input id="title" name="title" type="text" class="input-elem-group__input validate" v-bind:class="{ 'browser-default': user[2].value == 2}">
-              <i class="speech-elem material-icons input-field__speech-icon" v-bind:class="{ 'hidden': user[5].value == 1}">mic</i>
+              <input id="title" name="title" type="text" class="input-elem-group__input validate" v-bind:class="{ 'browser-default': user[2].value == 2}" v-model="data.title">
+              <i class="speech-elem material-icons input-field__speech-icon" v-on:click="onSpeak('title')" v-bind:class="{ 'hidden': user[5].value == 1}">mic</i>
               <label for="title" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Título</label>
             </div>
           </div>
           <div class="row datepicker-elem-group--material" v-bind:class="{ 'hidden': user[1].value == 2}">
             <div class="input-field input-elem-group col s12">
-              <input id="date" name="date_1" type="text" class="input-elem-group__input datepicker-elem validate datepicker" v-datepicker>
-              <label for="date" class="input-elem-group__label">Data</label>
+              <input id="date1" name="date_1" type="text" class="input-elem-group__input datepicker-elem validate datepicker" v-datepicker v-model="data.date1">
+              <label for="date1" class="input-elem-group__label">Data</label>
             </div>
           </div>
           <div class="row datepicker-elem-group--browser-default" v-bind:class="{ 'hidden': user[1].value == 1}">
             <div class="input-field input-elem-group col s12">
-              <input id="date" name="date" type="date" class="input-elem-group__input datepicker-elem validate" v-bind:class="{ 'browser-default': user[2].value == 2}">
-              <label for="date" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Data</label>
+              <input id="date2" name="date" type="date" class="input-elem-group__input datepicker-elem validate" v-bind:class="{ 'browser-default': user[2].value == 2}" v-model="data.date2">
+              <label for="date2" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Data</label>
             </div>
           </div>
           <div class="row timepicker-elem-group--material" v-bind:class="{ 'hidden': user[4].value == 2}">
             <div class="input-field input-elem-group col s6">
-              <input id="time_from" name="time_start_1" type="text" class="input-elem-group__input validate timepicker" v-timepicker>
-              <label for="time_from" class="input-elem-group__label">Horário de início</label>
+              <input id="time_from1" name="time_start_1" type="text" class="input-elem-group__input validate timepicker" v-timepicker v-model="data.time_start1">
+              <label for="time_from1" class="input-elem-group__label">Horário de início</label>
             </div>
             <div class="input-field input-elem-group col s6">
-              <input id="time_to" name="time_end_1" type="text" class="input-elem-group__input validate timepicker" v-timepicker>
-              <label for="time_to" class="input-elem-group__label">Horário de término</label>
+              <input id="time_to1" name="time_end_1" type="text" class="input-elem-group__input validate timepicker" v-timepicker v-model="data.time_end1">
+              <label for="time_to1" class="input-elem-group__label">Horário de término</label>
             </div>
           </div>
           <div class="timepicker-elem-group--browser-default" v-bind:class="{ 'hidden': user[4].value == 1}">
             <div class="row">
               <div class="input-field input-elem-group col s6">
-                <input id="time_from" name="time_start_2" type="time" class="input-elem-group__input validate" v-bind:class="{ 'browser-default': user[2].value == 2}">
-                <label for="time_from" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Horário de início</label>
+                <input id="time_from2" name="time_start_2" type="time" class="input-elem-group__input validate" v-bind:class="{ 'browser-default': user[2].value == 2}" v-model="data.time_start2">
+                <label for="time_from2" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Horário de início</label>
               </div>
               <div class="input-field input-elem-group col s6">
-                <input id="time_to" name="time_end_2" type="time" class="input-elem-group__input validate" v-bind:class="{ 'browser-default': user[2].value == 2}">
-                <label for="time_to" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Horário de término</label>
+                <input id="time_to2" name="time_end_2" type="time" class="input-elem-group__input validate" v-bind:class="{ 'browser-default': user[2].value == 2}" v-model="data.time_end2">
+                <label for="time_to2" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Horário de término</label>
               </div>
             </div>
           </div>
-          <div class="row checkbox-elem--material" v-bind:class="{ 'hidden': user[0].value == 2}">
+<!--           <div class="row checkbox-elem--material" v-bind:class="{ 'hidden': user[0].value == 2}">
             <p class="col s6">
               <label for="all_day">
-                <input type="checkbox" name="all_day" id="all_day" />
+                <input type="checkbox" name="all_day" id="all_day" v-model="completed" />
                 <span>Dia todo</span>
               </label>
             </p>
           </div>
           <div class="row checkbox-elem--browser-default" v-bind:class="{ 'hidden': user[0].value == 1}">
             <div class="col s12">
-              <input type="checkbox" name="all_day" id="all_day" class="checkbox-html" />
+              <input type="checkbox" name="all_day" id="all_day" class="checkbox-html" v-model="completed/>
               <label for="all_day">Dia todo</label>
             </div>
-          </div>
+          </div> -->
           <div class="row">
             <div class="input-field input-elem-group col s12">
-              <input id="location" name="location" type="text" class="validate input-elem-group__input" v-bind:class="{ 'browser-default': user[2].value == 2}">
-              <i class="speech-elem hidden material-icons input-field__speech-icon" v-bind:class="{ 'hidden': user[5].value == 1 }">mic</i>
+              <input id="location" name="location" type="text" class="validate input-elem-group__input" v-bind:class="{ 'browser-default': user[2].value == 2}" v-model="data.location" required>
+              <i class="speech-elem material-icons input-field__speech-icon" v-on:click="onSpeak('location')" v-bind:class="{ 'hidden': user[5].value == 1 }">mic</i>
               <label for="location" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Local</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12" v-bind:class="{ 'hidden': user[3].value == 2}">
-              <select name="category" class="select-elem--material" v-select>
+              <select name="category" class="select-elem--material" v-select v-model="data.category1">
                 <option value="" disabled selected>Escolha sua categoria</option>
                 <option value="Diabetes">Diabetes</option>
-                <option value="Exercise">Exercício</option>
-                <option value="Family">Família</option>
-                <option value="Home">Casa</option>
-                <option value="Food">Comida</option>
-                <option value="Shopping">Compras</option>
-                <option value="School">Escola</option>
-                <option value="Other">Outros</option>
-                <option value="Personal">Pessoal</option>
+                <option value="Exercício">Exercício</option>
+                <option value="Família">Família</option>
+                <option value="Casa">Casa</option>
+                <option value="Comida">Comida</option>
+                <option value="Compras">Compras</option>
+                <option value="Escola">Escola</option>
+                <option value="Outros">Outros</option>
+                <option value="Pessoal">Pessoal</option>
                 <option value="Pets">Pets</option>
-                <option value="Health">Saúde</option>
+                <option value="Saúde">Saúde</option>
                 <option value="Social">Social</option>
-                <option value="Work">Trabalho</option>
-                <option value="Travel">Viagem</option>
+                <option value="Trabalho">Trabalho</option>
+                <option value="Viagem">Viagem</option>
               </select>
               <label class="select-elem__label">Categoria</label>
             </div>
             <div class="input-field col s12" v-bind:class="{ 'hidden': user[3].value == 1}">
-              <select name="category" class="select-elem--browser-default browser-default">
+              <select name="category" class="select-elem--browser-default browser-default" v-model="data.category2">
                 <option value="" disabled selected>Escolha sua categoria</option>
                 <option value="Diabetes">Diabetes</option>
-                <option value="Exercise">Exercício</option>
-                <option value="Family">Família</option>
-                <option value="Home">Casa</option>
-                <option value="Food">Comida</option>
-                <option value="Shopping">Compras</option>
-                <option value="School">Escola</option>
-                <option value="Other">Outros</option>
-                <option value="Personal">Pessoal</option>
+                <option value="Exercício">Exercício</option>
+                <option value="Família">Família</option>
+                <option value="Casa">Casa</option>
+                <option value="Comida">Comida</option>
+                <option value="Compras">Compras</option>
+                <option value="Escola">Escola</option>
+                <option value="Outros">Outros</option>
+                <option value="Pessoal">Pessoal</option>
                 <option value="Pets">Pets</option>
-                <option value="Health">Saúde</option>
+                <option value="Saúde">Saúde</option>
                 <option value="Social">Social</option>
-                <option value="Work">Trabalho</option>
-                <option value="Travel">Viagem</option>
+                <option value="Trabalho">Trabalho</option>
+                <option value="Viagem">Viagem</option>
               </select>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <button class="right waves-effect waves-light btn" name="action" type="submit">Salvar</button>
+              <button to="/" class="right waves-effect waves-light btn" v-on:click.prevent="submit()" v-bind:class="{ disabled: isValid() == 0 }" type="submit">Salvar</button>
             </div>
           </div>
         </form>
@@ -125,19 +125,62 @@
 </template>
 <script>	
 	import { userprefs } from './mixins/userprefs'
+  import { modalities } from './mixins/modalities'
+  import { db } from './mixins/db'
+
   export default {
-  	mixins: [ userprefs ],
+  	mixins: [ userprefs, modalities, db ],
     data() {
       return {
         'user': this.getUser(),
+        'data': {
+          'title': '',
+          'date1': '',
+          'date2': '',
+          'time_start1': '',
+          'time_start2': '',
+          'time_end1': '',
+          'time_end2': '',
+          'location': '',
+          'category1': '',
+          'category2': ''
+        }
       }
     },
   	methods: {
 			getInput: function() {
-				console.log(this.user[2].value);
 				return this.user[2];
-			}
-  	}
+			},
+      onSpeak: function(element) {
+        var text = this.startSpeech(element);
+      },
+      isValid: function() {
+        return ((this.data.title != '') && (this.data.date1 != '' || this.data.date2 != '') && (this.data.time_from1 != '' || this.data.time_from2 != '') && (this.data.time_to1 != '' || this.data.time_to2 != '') && (this.data.location != '') && (this.data.category1 != '' || this.data.category2 != ''));
+      },
+      submit: function() {  
+        if (this.isValid()) {
+          this.addData(this.user, this.data);
+          this.$router.push('/');
+          M.toast({html: 'Evento adicionado com sucesso'});
+        }
+      }
+  	},
+    mounted() {
+      document.getElementById('time_from1').onchange = () => {
+        this.data.time_start1 = document.getElementById('time_from1').value;
+        console.log('from1');
+      };
+
+      document.getElementById('time_to1').onchange = () => {
+        this.data.time_end1 = document.getElementById('time_to1').value;
+        console.log('from2');
+      };
+
+      document.getElementById('date1').onchange = () => {
+        this.data.date1 = document.getElementById('date1').value;
+        console.log('date1');
+      };
+    }
   }  
 </script>
 <style scoped>

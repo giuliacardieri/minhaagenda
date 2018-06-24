@@ -11,7 +11,7 @@
 	    <div id="speech" class="tabs__div col s12">
 	      <div class="row">
 	        <ul class="collapsible" v-collapsible>
-	          <li class="collapsible__li speech__type1" v-on:click="showBody = 0" v-bind:class="{ chosen: activeElement == 0,  active: showBody == 0 }">
+	          <li class="collapsible__li speech__type1" v-on:click="showBody = 0" v-bind:class="{ chosen: user[5].value === 1,  active: showBody == 0 }">
 	            <div class="li__collapsible-header collapsible-header">
 	              <span class="collapsible-header__span-speech-1 collapsible-header__span">
 	                <i class="material-icons collapsible-header__icon">done</i>
@@ -21,18 +21,17 @@
 	            <div class="collapsible-body">
 	              <div class="input-field">
 	                <input type="text" name="speech-type1">
-	                <i class="speech-elem speech-test hidden material-icons input-field__speech-icon">mic</i>
-	                <label for="speech-type1">Texto</label>
+	                <label for="speech-type1">Digite seu texto</label>
 	              </div>
 	              <div class="right-align">
-	                <button v-on:click="activate(0), setNewItem(5,1)" v-bind:class="{ chosen: activeElement == 0 }" class="speech-1 btn btn-wrapper__btn-choose waves-effect">
+	                <button v-on:click="activate(5,1)" v-bind:class="{ chosen: user[5].value === 1 }" class="speech-1 btn btn-wrapper__btn-choose waves-effect">
 			            	<span class="span__chosen">Escolhido</span>
 			            	<span class="span__choose">Escolher</span>
 			            </button>
 	              </div>
 	            </div>
 	          </li>
-	          <li class="collapsible__li speech__type2" v-on:click="showBody = 1" v-bind:class="{ chosen: activeElement == 1,  active: showBody == 1 }">
+	          <li class="collapsible__li speech__type2" v-on:click="showBody = 1" v-bind:class="{ chosen: user[5].value === 2,  active: showBody == 1 }">
 	            <div class="li__collapsible-header collapsible-header">
 	              <span class="collapsible-header__span-speech-2 collapsible-header__span">
 	                <i class="material-icons collapsible-header__icon">done</i>
@@ -41,12 +40,12 @@
 	            </div>
 	            <div class="collapsible-body">
 	              <div class="input-field input-elem-group">
-	                <input type="text" name="speech-type2" class="input-elem-group__input input-test">
-	                <i class="speech-elem speech-test material-icons input-field__speech-icon">mic</i>
-	                <label for="speech-type2" class="input-elem-group__label input-test">Texto</label>
+	                <input id="test" type="text" name="speech-type2" class="input-elem-group__input input-test">
+	                <i class="speech-elem speech-test material-icons input-field__speech-icon" v-on:click="onSpeak('test')">mic</i>
+	                <label for="speech-type2" class="input-elem-group__label input-test">Clique no microfone para usar voz, ou digite</label>
 	              </div>
 	              <div class="right-align">
-	                <button v-on:click="activate(1), setNewItem(5,2)" v-bind:class="{ chosen: activeElement == 1 }"  class="speech-2 btn btn-wrapper__btn-choose waves-effect">
+	                <button v-on:click="activate(5,2)" v-bind:class="{ chosen: user[5].value === 2 }"  class="speech-2 btn btn-wrapper__btn-choose waves-effect">
 			            	<span class="span__chosen">Escolhido</span>
 			            	<span class="span__choose">Escolher</span>
 			            </button>
@@ -59,8 +58,8 @@
 	    <div id="swipe" class="tabs__div col s12">
 	      <div class="row">
 	        <ul class="collapsible" v-collapsible>
-	          <li class="collapsible__li swipe__type1" v-on:click="showBody = 0" v-bind:class="{ chosen: activeElement == 0,  active: showBody == 0 }">
-	            <div class="li__collapsible-header  collapsible-header">
+	          <li class="collapsible__li swipe__type1" v-on:click="showBody = 2" v-bind:class="{ chosen: user[9].value === 1,  active: showBody == 2 }">
+	            <div class="li__collapsible-header collapsible-header">
 	              <span class="collapsible-header__span-swipe-1 collapsible-header__span">
 	                <i class="material-icons collapsible-header__icon">done</i>
 	              </span>
@@ -78,14 +77,14 @@
 	                </div>
 	              </div>
 	              <div class="right-align">
-	                <button v-on:click="activate(0), setNewItem(9,1)" v-bind:class="{ chosen: activeElement == 0 }"  class="swipe-1 btn btn-wrapper__btn-choose waves-effect" data-icon="swipe-1">
+	                <button v-on:click="activate(9,1)" v-bind:class="{ chosen: user[9].value === 1 }"  class="swipe-1 btn btn-wrapper__btn-choose waves-effect" data-icon="swipe-1">
 			            	<span class="span__chosen">Escolhido</span>
 			            	<span class="span__choose">Escolher</span>
 	                </button>
 	              </div>
 	            </div>
 	          </li>
-	          <li class="collapsible__li speech__type2" v-on:click="showBody = 1" v-bind:class="{ chosen: activeElement == 1,  active: showBody == 1 }">
+	          <li class="collapsible__li swipe__type2" v-on:click="showBody = 3" v-bind:class="{ chosen: user[9].value === 2,  active: showBody == 3 }">
 	            <div class="li__collapsible-header collapsible-header">
 	              <span class="collapsible-header__span-swipe-2 collapsible-header__span">
 	                <i class="material-icons collapsible-header__icon">done</i>
@@ -95,16 +94,17 @@
 	            <div class="collapsible-body">
 	              <div class="row">
 	                <div class="col s12 m6">
-	                  <div class="card swipe-elem swipe-test">
+	                  <v-touch id="card-test" class="card" v-on:swiperight="activateSwipe(2, 2, 'test');" v-on:swipeleft="activateSwipe(1, 2, 'test')">
 	                    <div class="card-content">
 	                      <span class="card-title">Um cartão</span>
-	                      <p>Esse cartão permite o movimento swipe.</p>
+	                      <p>Para cancelar um evento, faça o movimento para esquerda.</p>
+	                      <p>Para marcar como finalizado um evento, faça o movimento para direita.</p>
 	                    </div>
-	                  </div>
+	                  </v-touch>
 	                </div>
 	              </div>
 	              <div class="right-align">
-	                <button v-on:click="activate(1), setNewItem(9,2)" v-bind:class="{ chosen: activeElement == 1 }"  class="swipe-2 btn btn-wrapper__btn-choose waves-effect">
+	                <button v-on:click="activate(9,2)" v-bind:class="{ chosen: user[9].value === 2 }"  class="swipe-2 btn btn-wrapper__btn-choose waves-effect">
 			            	<span class="span__chosen">Escolhido</span>
 			            	<span class="span__choose">Escolher</span>
 			            </button>
@@ -117,7 +117,7 @@
 	    <div id="voice" class="tabs__div col s12">
 	      <div class="row">
 	        <ul class="collapsible" v-collapsible>
-	          <li class="collapsible__li voice__type1" v-on:click="showBody = 0" v-bind:class="{ chosen: activeElement == 0,  active: showBody == 0 }">
+	          <li class="collapsible__li voice__type1" v-on:click="showBody = 4" v-bind:class="{ chosen: user[8].value === 1,  active: showBody == 4 }">
 	            <div class="li__collapsible-header collapsible-header">
 	              <span class="collapsible-header__span-voice-1 collapsible-header__span">
 	                <i class="material-icons collapsible-header__icon">done</i>
@@ -125,16 +125,16 @@
 	              Bloquar o uso de ditação de voz
 	            </div>
 	            <div class="collapsible-body">
-	              block
+	              <h3>Um título</h3>
 	              <div class="right-align">
-	                <button dv-on:click="activate(0), setNewItem(8,1)" v-bind:class="{ chosen: activeElement == 0 }"  class="voice-1 btn btn-wrapper__btn-choose waves-effect">
+	                <button v-on:click="activate(8,1)" v-bind:class="{ chosen: user[8].value === 1 }"  class="voice-1 btn btn-wrapper__btn-choose waves-effect">
 			            	<span class="span__chosen">Escolhido</span>
 			            	<span class="span__choose">Escolher</span>
 			            </button>
 	              </div>
 	            </div>
 	          </li>
-	          <li class="collapsible__li speech__type2" v-on:click="showBody = 1" v-bind:class="{ chosen: activeElement == 1,  active: showBody == 1 }">
+	          <li class="collapsible__li voice__type2" v-on:click="showBody = 5" v-bind:class="{ chosen: user[8].value === 2,  active: showBody == 5 }">
 	            <div class="li__collapsible-header collapsible-header">
 	              <span class="collapsible-header__span-voice-2 collapsible-header__span">
 	                <i class="material-icons collapsible-header__icon">done</i>
@@ -142,9 +142,12 @@
 	              Permitir o uso de ditação de voz
 	            </div>
 	            <div class="collapsible-body">
-	              allow
+	              <h3>
+	              	Um título
+	              	<i class="material-icons voice-icon" v-on:click="speechSynthesis('Um título')">volume_up</i>
+	              </h3>
 	              <div class="right-align">
-	                <button v-on:click="activate(1), setNewItem(8,2)" v-bind:class="{ chosen: activeElement == 1 }"  class="voice-2 btn btn-wrapper__btn-choose waves-effect">
+	                <button v-on:click="activate(8,2)" v-bind:class="{ chosen: user[8].value === 2 }"  class="voice-2 btn btn-wrapper__btn-choose waves-effect">
 			            	<span class="span__chosen">Escolhido</span>
 			            	<span class="span__choose">Escolher</span>
 			            </button>
@@ -163,18 +166,24 @@
 
 <script>
 	import { userprefs } from './mixins/userprefs'
+	import { modalities } from './mixins/modalities'
   export default {
-  	mixins: [ userprefs ],
+  	mixins: [ userprefs, modalities ],
     data() {
       return {
-       activeElement: 0,
-       showBody: 0,
+       showBody: null,
        activeLink: 1,
+       user: this.getUser()
       }
     },  
     methods: {
-      activate: function(el) {
-        this.activeElement = el;
+      onSpeak: function(element) {
+        var text = this.startSpeech(element);
+      },
+      activate: function(el, value) {
+      	this.showBody = value;
+        this.user[el].value = value;
+        this.setNewItem(el, value);
       }
     }
   }

@@ -28,12 +28,6 @@
                 <span class="a__span">Meu design</span>
               </router-link>
             </li>
-            <li class="ul__li" v-on:click="activeLink = 2" v-bind:class="{ active: activeLink == 2 }">
-              <router-link to="/pastevents" class="li__a">
-                <i class="material-icons a__icons">schedule</i>
-                <span class="a__span">Eventos antigos</span>
-              </router-link>
-            </li>
           </ul>
         </div>
       </nav>
