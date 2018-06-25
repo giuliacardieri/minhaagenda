@@ -18,6 +18,11 @@
     <meta name="apple-mobile-web-app-title" content="agenda">
     <link rel="apple-touch-icon" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/apple-touch-icon-152x152.png">
     <link rel="mask-icon" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/safari-pinned-tab.svg" color="#4DBA87">
+    <link rel=preload href=dist/static/js/vendor.2dd405a9c46b86616d9e.js as=script>
+    <link rel=preload href=dist/static/js/app.1b99d98af91ca81da438.js as=script>
+    <link rel=preload href=dist/static/css/app.2a12f5476025524c854a8c7ae64a509b.css as=style>
+    <link rel=preload href=dist/static/js/manifest.2ae2e69a05c33dfc65f8.js as=script>
+    <link href=dist/static/css/app.2a12f5476025524c854a8c7ae64a509b.css rel=stylesheet>
     <!-- Add to home screen for Windows -->
     <meta name="msapplication-TileImage" content="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/msapplication-icon-144x144.png">
     <meta name="msapplication-TileColor" content="#000000">
@@ -30,6 +35,9 @@
     <noscript>
       This is your fallback content in case JavaScript fails to load.
     </noscript>
+    <script type=text/javascript src=dist/static/js/manifest.2ae2e69a05c33dfc65f8.js></script>
+    <script type=text/javascript src=dist/static/js/vendor.2dd405a9c46b86616d9e.js></script>
+    <script type=text/javascript src=dist/static/js/app.1b99d98af91ca81da438.js></script>
     <div id="app"></div>
     <!-- Todo: only include in production -->
     <%= htmlWebpackPlugin.options.serviceWorkerLoader %>
