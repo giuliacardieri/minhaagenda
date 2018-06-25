@@ -4,6 +4,8 @@
   "description": "A event schedulling PWA",
   "author": "Giulia Cardieri <giulia.cardieri@gmail.com>",
   "private": true,
+  "postinstall": "npm run build",
+  "start": "node server.js",
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
