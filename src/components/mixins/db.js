@@ -84,7 +84,7 @@ export const db = {
           final_data.allday = data.allday2;
 
         if (user[1].value == 1)
-          final_data.date = moment().format('YYYY-MM-DD', data.date1);
+          final_data.date = data.date1;
         else
           final_data.date = data.date2;
         

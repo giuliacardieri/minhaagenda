@@ -30,6 +30,7 @@ Vue.directive('tabs', {
 Vue.directive('datepicker', {
   inserted: function (el) {
     var instances = M.Datepicker.init(document.querySelectorAll('.datepicker'), {
+      format: 'yyyy-mm-dd',
       i18n:  {
         cancel: 'cancelar',
         clear: 'limpar',
