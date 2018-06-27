@@ -5,8 +5,9 @@
     </div>
     <div  class="main__content-wrapper">
       <div class="row">
-          <div v-if="db.length === 0 || isEmpty()" class="col s12 m12">
-            <p>Nenhum evento hoje</p>
+          <div v-if="db.length === 0 || isEmpty()" class="content-wrapper__empty-wrapper col s12 m12">
+            <i class="material-icons medium empty-wrapper__icon">event_note</i>
+            <p class="empty-wrapper__p">Nenhum evento hoje</p>
           </div>
           <template v-else>
             <div v-if="user[6].value === 1" class="cards-wrapper col s12 m4">
@@ -171,6 +172,21 @@
     bottom: calc(16px + 56px);
     position: fixed;
     right: 16px;
+  }
+
+  .content-wrapper__empty-wrapper {
+    text-align: center;
+  }
+
+  .empty-wrapper__icon {
+    color: var(--grey);
+    padding-top: 25px;
+  }
+
+  .empty-wrapper__p {
+    color: var(--grey);
+    font-size: 16px;
+    margin: 0;
   }
 
   /* cards */

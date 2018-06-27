@@ -90,7 +90,7 @@
                 <option value="Trabalho">Trabalho</option>
                 <option value="Viagem">Viagem</option>
               </select>
-              <label v-if="user[3].value === 2" for="category" class="select-elem__label">Categoria</label>
+              <label v-if="user[3].value === 1" for="category" class="select-elem__label">Categoria</label>
               <select id="category" name="category" class="select-elem--browser-default browser-default" v-if="user[3].value === 2" v-model="data.category">
                 <option value="" disabled selected>Escolha sua categoria</option>
                 <option value="Exercício">Exercício</option>
@@ -266,7 +266,6 @@
           this.toggleTimepicker(0);
         else
           this.toggleTimepicker(1);
-
       };
     }
   }  
