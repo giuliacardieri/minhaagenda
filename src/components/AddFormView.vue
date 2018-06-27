@@ -13,68 +13,68 @@
           <div class="row">
             <div class="input-field input-elem-group col s12">
               <input id="title" name="title" type="text" class="input-elem-group__input validate" v-bind:class="{ 'browser-default': user[2].value == 2}" v-model="data.title">
-              <i class="speech-elem material-icons input-field__speech-icon" v-on:click="onSpeak('title')" v-bind:class="{ 'hidden': user[5].value == 1}">mic</i>
+              <i class="speech-elem material-icons input-field__speech-icon" v-if="user[5].value === 2" v-on:click="onSpeak('title')" >mic</i>
               <label for="title" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Título</label>
             </div>
           </div>
-          <div class="row datepicker-elem-group--material" v-bind:class="{ 'hidden': user[1].value == 2}">
+          <div class="row datepicker-elem-group--material" v-if="user[1].value === 1">
             <div class="input-field input-elem-group col s12">
-              <input id="date1" name="date_1" type="text" class="input-elem-group__input datepicker-elem validate datepicker" v-datepicker v-model="data.date1">
-              <label for="date1" class="input-elem-group__label">Data</label>
+              <input id="date" name="date" type="text" class="input-elem-group__input datepicker-elem validate datepicker" v-datepicker v-model="data.date">
+              <label for="date" class="input-elem-group__label">Data</label>
             </div>
           </div>
-          <div class="row datepicker-elem-group--browser-default" v-bind:class="{ 'hidden': user[1].value == 1}">
+          <div class="row datepicker-elem-group--browser-default" v-if="user[1].value === 2">
             <div class="input-field input-elem-group col s12">
-              <input id="date2" name="date" type="date" class="input-elem-group__input datepicker-elem validate" v-bind:class="{ 'browser-default': user[2].value == 2}" v-model="data.date2">
-              <label for="date2" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Data</label>
+              <input id="date" name="date" type="date" class="input-elem-group__input datepicker-elem validate" v-bind:class="{ 'browser-default': user[2].value == 2}" v-model="data.date">
+              <label for="date" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Data</label>
             </div>
           </div>
-          <div class="row timepicker-elem-group--material" v-bind:class="{ 'hidden': user[4].value == 2}">
+          <div class="row timepicker-elem-group--material" v-if="user[4].value === 1">
             <div class="input-field input-elem-group col s6">
-              <input id="time_from1" name="time_start_1" type="text" class="input-elem-group__input timepicker" v-timepicker v-model="data.time_start1">
-              <label for="time_from1" class="input-elem-group__label">Horário de início</label>
+              <input id="time_from" name="time_start" type="text" class="input-elem-group__input timepicker" v-timepicker v-model="data.time_start">
+              <label for="time_from" class="input-elem-group__label">Horário de início</label>
             </div>
             <div class="input-field input-elem-group col s6">
-              <input id="time_to1" name="time_end_1" type="text" class="input-elem-group__input timepicker" v-timepicker v-model="data.time_end1">
-              <label for="time_to1" class="input-elem-group__label">Horário de término</label>
+              <input id="time_to" name="time_end" type="text" class="input-elem-group__input timepicker" v-timepicker v-model="data.time_end">
+              <label for="time_to" class="input-elem-group__label">Horário de término</label>
             </div>
           </div>
-          <div class="timepicker-elem-group--browser-default" v-bind:class="{ 'hidden': user[4].value == 1}">
+          <div class="timepicker-elem-group--browser-default" v-if="user[4].value === 2">
             <div class="row">
               <div class="input-field input-elem-group col s6">
-                <input id="time_from2" name="time_start_2" type="time" class="input-elem-group__input" v-bind:class="{ 'browser-default': user[2].value == 2}" v-model="data.time_start2">
-                <label for="time_from2" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Horário de início</label>
+                <input id="time_from" name="time_start" type="time" class="input-elem-group__input" v-bind:class="{ 'browser-default': user[2].value == 2}" v-model="data.time_start">
+                <label for="time_from" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Horário de início</label>
               </div>
               <div class="input-field input-elem-group col s6">
-                <input id="time_to2" name="time_end_2" type="time" class="input-elem-group__input" v-bind:class="{ 'browser-default': user[2].value == 2}" v-model="data.time_end2">
-                <label for="time_to2" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Horário de término</label>
+                <input id="time_to" name="time_end" type="time" class="input-elem-group__input" v-bind:class="{ 'browser-default': user[2].value == 2}" v-model="data.time_end">
+                <label for="time_to" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Horário de término</label>
               </div>
             </div>
           </div>
-          <div class="row checkbox-elem--material" v-bind:class="{ 'hidden': user[0].value == 2}">
+          <div class="row checkbox-elem--material" v-if="user[0].value === 1">
             <p class="col s6">
-              <label for="allday1">
-                <input type="checkbox" name="allday1" id="allday1" v-model="data.allday1" />
+              <label for="allday">
+                <input type="checkbox" name="allday" id="allday" v-model="data.allday" />
                 <span>Dia todo</span>
               </label>
             </p>
           </div>
-          <div class="row checkbox-elem--browser-default" v-bind:class="{ 'hidden': user[0].value == 1}">
+          <div class="row checkbox-elem--browser-default" v-if="user[0].value === 2">
             <div class="col s12">
-              <input type="checkbox" name="allday2" id="allday2" class="checkbox-html" v-model="data.allday2" />
-              <label for="allday2">Dia todo</label>
+              <input type="checkbox" name="allday" id="allday" class="checkbox-html" v-model="data.allday" />
+              <label for="allday">Dia todo</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field input-elem-group col s12">
               <input id="location" name="location" type="text" class="validate input-elem-group__input" v-bind:class="{ 'browser-default': user[2].value == 2}" v-model="data.location" required>
-              <i class="speech-elem material-icons input-field__speech-icon" v-on:click="onSpeak('location')" v-bind:class="{ 'hidden': user[5].value == 1 }">mic</i>
+              <i class="speech-elem material-icons input-field__speech-icon" v-on:click="onSpeak('location')" v-if="user[5].value === 2">mic</i>
               <label for="location" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Local</label>
             </div>
           </div>
           <div class="row">
-            <div class="input-field col s12" v-bind:class="{ 'hidden': user[3].value == 2}">
-              <select id="category1" name="category" class="select-elem--material" v-select v-model="data.category1">
+            <div class="input-field col s12">
+              <select id="category" name="category" class="select-elem--material" v-if="user[3].value === 1" v-select v-model="data.category">
                 <option value="" disabled selected>Escolha sua categoria</option>
                 <option value="Exercício">Exercício</option>
                 <option value="Família">Família</option>
@@ -90,10 +90,8 @@
                 <option value="Trabalho">Trabalho</option>
                 <option value="Viagem">Viagem</option>
               </select>
-              <label for="category1" class="select-elem__label">Categoria</label>
-            </div>
-            <div class="input-field col s12" v-bind:class="{ 'hidden': user[3].value == 1}">
-              <select name="category" class="select-elem--browser-default browser-default" v-model="data.category2">
+              <label v-if="user[3].value === 2" for="category" class="select-elem__label">Categoria</label>
+              <select id="category" name="category" class="select-elem--browser-default browser-default" v-if="user[3].value === 2" v-model="data.category">
                 <option value="" disabled selected>Escolha sua categoria</option>
                 <option value="Exercício">Exercício</option>
                 <option value="Família">Família</option>
@@ -131,21 +129,22 @@
     data() {
       return {
         'user': this.getUser(),
-        'timestart': '',
-        'timeend': '',
+        'timestart': {
+          'hours': '',
+          'minutes': ''
+        },
+        'timeend': {
+          'hours': '',
+          'minutes': ''
+        },
         'data': {
           'title': '',
-          'date1': '',
-          'date2': '',
-          'time_start1': '',
-          'time_start2': '',
-          'time_end1': '',
-          'time_end2': '',
+          'date': '',
+          'time_start': '',
+          'time_end': '',
           'location': '',
-          'category1': '',
-          'category2': '',
-          'allday1': 0,
-          'allday2': 0,
+          'category': '',
+          'allday': 0,
         }
       }
     },
@@ -157,7 +156,7 @@
         var text = this.startSpeech(element);
       },
       isValid: function() {
-        return ((this.data.title != '') && (this.data.date1 != '' || this.data.date2 != '') && (this.data.time_start1 != '' || this.data.time_start2 != '' || this.data.allday2  || this.data.allday1) && (this.data.time_end1 != '' || this.data.time_end2 != '' || this.data.allday1 || this.data.allday2) && (this.data.location != '') && (this.data.category1 != '' || this.data.category2 != ''));
+        return ((this.data.title !== '') && (this.data.date !== '') && (this.data.time_start !== '' || this.data.allday) && (this.data.time_end != '' || this.data.allday) && (this.data.location != '') && (this.data.category != ''));
       },
       submit: function() {  
         if (this.isValid()) {
@@ -167,11 +166,37 @@
         }
       },
       isTimeValid: function(type, hours, minutes) {
-        if (type === 0 && (this.data.time_end1 !== '' || this.data.time_end2 !== ''))
+        if (type === 0 && (this.data.time_end !== ''))
           return this.checkTime(hours, this.timeend.hours, minutes, this.timeend.minutes);
-        else if ((this.data.time_start1 !== '' || this.data.time_start2 !== ''))
+        else if (this.data.time_start !== '')
           return this.checkTime(this.timestart.hours, hours, this.timestart.minutes, minutes);
         return true;
+      },
+      addValidClasses: function(el) {
+        el.classList.add('valid');
+        el.classList.remove('invalid');
+      },
+      removeValidClasses: function(el) {
+        el.classList.remove('valid');
+        el.classList.add('invalid');
+      },
+      addTimeInstanceValues: function(type, el) {
+        if (!type) {
+          this.timestart.hours = el.hours;
+          this.timestart.minutes = el.minutes;
+        } else {
+          this.timeend.hours = el.hours;
+          this.timeend.minutes = el.minutes;
+        }
+      },
+      addTimeInputValues: function(type, el) {
+        if (!type) { 
+          this.timestart.hours = el[0];
+          this.timestart.minutes = el[1];
+        } else {
+          this.timeend.hours = el[0];
+          this.timeend.minutes = el[1];
+        }
       },
       checkTime: function(hourMin, hourMax, minuteMin, minuteMax) {
         if (hourMax < hourMin)
@@ -181,14 +206,10 @@
         return true;
       },
       toggleTimepicker: function(action) {
-        if (!action) {
-          document.getElementById('time_from' + this.user[4].value).disabled = true;
-          document.getElementById('time_to' + this.user[4].value).disabled = true;
-        }
-        else {
-          document.getElementById('time_from' + this.user[4].value).disabled = false;
-          document.getElementById('time_to' + this.user[4].value).disabled = false;
-        }
+        if (!action)
+          document.getElementById('time_from').disabled = true;
+        else
+          document.getElementById('time_from').disabled = false;
       }
   	},
     mounted() {   
@@ -201,57 +222,51 @@
         this.data.title = document.getElementById('title').value;
       };
 
-      document.getElementById('time_from1').onchange = (e) => {
-        this.timestart = M.Timepicker.getInstance(document.getElementById('time_from1'));
+      document.getElementById('time_from').onchange = (e) => {
+        if (e.target.classList.contains('timepicker'))
+          this.addTimeInstanceValues(0, M.Timepicker.getInstance(e.target));
+        else
+          this.addTimeInputValues(0, e.target.value.split(':'));
+
         if (this.isTimeValid(0, this.timestart.hours, this.timestart.minutes)) {
-          this.data.time_start1 = document.getElementById('time_from1').value;
-          e.target.classList.add('valid');
-          e.target.classList.remove('invalid');
-        }
-        else {
-          this.data.time_start1 = '';
-          e.target.classList.remove('valid');
-          e.target.classList.add('invalid');
+          this.data.time_start = e.target.value;
+          this.addValidClasses(e.target);
+        } else {
+          this.data.time_start = '';
+          this.removeValidClasses(e.target);
         }
       };
 
-      document.getElementById('time_to1').onchange = (e) => {
-        this.timeend = M.Timepicker.getInstance(document.getElementById('time_to1'));
+      document.getElementById('time_to').onchange = (e) => {
+        if (e.target.classList.contains('timepicker')) 
+          this.addTimeInstanceValues(1, M.Timepicker.getInstance(e.target));
+        else
+          this.addTimeInputValues(1, e.target.value.split(':'));
+
         if (this.isTimeValid(1, this.timeend.hours, this.timeend.minutes)) {
-          this.data.time_end1 = document.getElementById('time_to1').value;
-          e.target.classList.add('valid');
-          e.target.classList.remove('invalid');
-        }
-        else {
-          this.data.time_end1 = '';
-          e.target.classList.remove('valid');
-          e.target.classList.add('invalid');
+          this.data.time_end = e.target.value;
+          this.addValidClasses(e.target);
+        } else {
+          this.data.time_end = '';
+          this.removeValidClasses(e.target);
         }
       };
 
-      document.getElementById('date1').onchange = () => {
-        this.data.date1 = document.getElementById('date1').value;
+      document.getElementById('date').onchange = () => {
+        this.data.date = e.target.value;
       };
 
-      document.getElementsByClassName('select-elem--material')[0].onchange = () => {
-        this.data.category1 = document.getElementsByClassName('select-elem--material')[0].value;
-        console.log(document.getElementsByClassName('select-elem--material')[0].value);
+      document.getElementById('category').onchange = () => {
+        this.data.category = e.target.value;
       };
 
-      document.getElementById('allday1').onchange = (e) => {
-        this.data.allday1 = document.getElementById('allday1').checked;
+      document.getElementById('allday').onchange = (e) => {
+        this.data.allday = e.target.checked;
         if (e.target.checked)
           this.toggleTimepicker(0);
         else
           this.toggleTimepicker(1);
 
-      };
-
-      document.getElementById('allday2').onchange = (e) => {
-        if (e.target.checked)
-          this.toggleTimepicker(0);
-        else
-          this.toggleTimepicker(1);
       };
     }
   }  
@@ -278,6 +293,14 @@
 	.input-elem-group__input.browser-default:focus {
 		outline: 0;
 	}
+
+  .input-elem-group__input.browser-default.valid {
+    border: 1px solid var(--green);
+  }
+
+  .input-elem-group__input.browser-default.invalid {
+    border: 1px solid var(--red);
+  }
 
 	.input-field > .input-elem-group__label.browser-default,
 	.input-field > .select-elem__label.browser-default {
