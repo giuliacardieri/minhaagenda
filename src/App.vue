@@ -35,8 +35,14 @@
     --grey-darken-2: #616161;
   }
 
+  /* helpers */
+
   .hidden {
     display: none;
+  }
+
+  .bold-text {
+    font-weight: bold;
   }
 
   .material-icons {
@@ -72,6 +78,7 @@
     left: 0;
     position: fixed;
     width: 100vw;
+    z-index: 1;
   }
 
 
@@ -155,7 +162,7 @@
 
   /* btn user prefs */
   .row.template__button-wrapper {
-    margin: 0 15px;
+    margin: 0 15px 25px 15px;
   }
 
   .btn-wrapper__btn-choose .span__chosen, .btn-wrapper__btn-choose.chosen .span__choose { 
@@ -164,6 +171,51 @@
 
   .btn-wrapper__btn-choose.chosen .span__chosen, .btn-wrapper__btn-choose .span__choose { 
     display: block;
+  }
+
+  /* list swipe actions */
+  .collection__li.swipeleft {
+    animation: swipeleft 1s ease-in 1;
+  }
+
+  .collection__li.swiperight {
+    animation: swiperight 1s ease-in 1;
+  }
+
+  .collection__li:before {
+    background-color: var(--green);
+    color: white;
+    content: '\e876';
+    font-family: 'Material Icons';
+    font-size: 30px;
+    padding: 0 20px;
+    position: absolute;
+    height: 100%;
+    left: -110vw;
+    line-height: 84px;
+    text-align: right;
+    top: 0;
+    transition: left 2s;
+    width: 110vw;
+    z-index: -1;
+  }
+
+  .collection__li:after {
+    background-color: var(--red);
+    color: white;
+    content: '\e14c';
+    font-family: 'Material Icons';
+    font-size: 30px;
+    padding: 0 20px;
+    position: absolute;
+    height: 100%;
+    right: -110vw;
+    line-height: 84px;
+    text-align: left;
+    transition: right 2s;
+    top: 0;
+    width: 110vw;
+    z-index: -1;
   }
 
   /* cards swipe actions */
@@ -183,14 +235,42 @@
     opacity: 1;
   }
 
+  @media (max-width: 991px) {
+    .cards-wrapper__card:after {
+      color: var(--red);
+      content: '\e14c';
+      font-family: 'Material Icons';
+      font-size: 50pt;
+      line-height: 250px;
+      right: -100px;
+      opacity: 0;
+      position: absolute;
+      transition: opacity 2s;
+      top: 0;
+    }
+
+    .cards-wrapper__card:before {
+      color: var(--green);
+      content: '\e876';
+      font-family: 'Material Icons';
+      font-size: 50pt;
+      line-height: 250px;
+      left: -100px;
+      opacity: 0;
+      position: absolute;
+      transition: opacity 2s;
+
+    }
+  }
+
   @keyframes swipeleft {
     from { left: 0; }
-    to { left: -100vw; }
+    to { left: -105vw; }
   }
 
   @keyframes swiperight {
     from { right: 0; }
-    to { right: -100vw; }
+    to { right: -105vw; }
   }
 
 </style>

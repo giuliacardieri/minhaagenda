@@ -31,22 +31,22 @@
           </div>
           <div class="row timepicker-elem-group--material" v-bind:class="{ 'hidden': user[4].value == 2}">
             <div class="input-field input-elem-group col s6">
-              <input id="time_from1" name="time_start_1" type="text" class="input-elem-group__input validate timepicker" v-timepicker v-model="data.time_start1">
+              <input id="time_from1" name="time_start_1" type="text" class="input-elem-group__input timepicker" v-timepicker v-model="data.time_start1">
               <label for="time_from1" class="input-elem-group__label">Horário de início</label>
             </div>
             <div class="input-field input-elem-group col s6">
-              <input id="time_to1" name="time_end_1" type="text" class="input-elem-group__input validate timepicker" v-timepicker v-model="data.time_end1">
+              <input id="time_to1" name="time_end_1" type="text" class="input-elem-group__input timepicker" v-timepicker v-model="data.time_end1">
               <label for="time_to1" class="input-elem-group__label">Horário de término</label>
             </div>
           </div>
           <div class="timepicker-elem-group--browser-default" v-bind:class="{ 'hidden': user[4].value == 1}">
             <div class="row">
               <div class="input-field input-elem-group col s6">
-                <input id="time_from2" name="time_start_2" type="time" class="input-elem-group__input validate" v-bind:class="{ 'browser-default': user[2].value == 2}" v-model="data.time_start2">
+                <input id="time_from2" name="time_start_2" type="time" class="input-elem-group__input" v-bind:class="{ 'browser-default': user[2].value == 2}" v-model="data.time_start2">
                 <label for="time_from2" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Horário de início</label>
               </div>
               <div class="input-field input-elem-group col s6">
-                <input id="time_to2" name="time_end_2" type="time" class="input-elem-group__input validate" v-bind:class="{ 'browser-default': user[2].value == 2}" v-model="data.time_end2">
+                <input id="time_to2" name="time_end_2" type="time" class="input-elem-group__input" v-bind:class="{ 'browser-default': user[2].value == 2}" v-model="data.time_end2">
                 <label for="time_to2" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Horário de término</label>
               </div>
             </div>
@@ -81,7 +81,7 @@
                 <option value="Casa">Casa</option>
                 <option value="Comida">Comida</option>
                 <option value="Compras">Compras</option>
-                <option value="Escola">Escola</option>
+                <option value="Estudo">Estudo</option>
                 <option value="Outros">Outros</option>
                 <option value="Pessoal">Pessoal</option>
                 <option value="Pets">Pets</option>
@@ -100,7 +100,7 @@
                 <option value="Casa">Casa</option>
                 <option value="Comida">Comida</option>
                 <option value="Compras">Compras</option>
-                <option value="Escola">Escola</option>
+                <option value="Estudo">Estudo</option>
                 <option value="Outros">Outros</option>
                 <option value="Pessoal">Pessoal</option>
                 <option value="Pets">Pets</option>
@@ -131,6 +131,8 @@
     data() {
       return {
         'user': this.getUser(),
+        'timestart': '',
+        'timeend': '',
         'data': {
           'title': '',
           'date1': '',
@@ -155,7 +157,7 @@
         var text = this.startSpeech(element);
       },
       isValid: function() {
-        return ((this.data.title != '') && ((this.data.date1 != '' || this.data.allday1 != 0) || (this.data.date2 != '' || this.data.allday2 != 0)) && (this.data.time_from1 != '' || this.data.time_from2 != '') && (this.data.time_to1 != '' || this.data.time_to2 != '') && (this.data.location != '') && (this.data.category1 != '' || this.data.category2 != ''));
+        return ((this.data.title != '') && (this.data.date1 != '' || this.data.date2 != '') && (this.data.time_start1 != '' || this.data.time_start2 != '' || this.data.allday2  || this.data.allday1) && (this.data.time_end1 != '' || this.data.time_end2 != '' || this.data.allday1 || this.data.allday2) && (this.data.location != '') && (this.data.category1 != '' || this.data.category2 != ''));
       },
       submit: function() {  
         if (this.isValid()) {
@@ -163,6 +165,20 @@
           this.$router.push('/');
           M.toast({html: 'Evento adicionado com sucesso'});
         }
+      },
+      isTimeValid: function(type, hours, minutes) {
+        if (type === 0 && (this.data.time_end1 !== '' || this.data.time_end2 !== ''))
+          return this.checkTime(hours, this.timeend.hours, minutes, this.timeend.minutes);
+        else if ((this.data.time_start1 !== '' || this.data.time_start2 !== ''))
+          return this.checkTime(this.timestart.hours, hours, this.timestart.minutes, minutes);
+        return true;
+      },
+      checkTime: function(hourMin, hourMax, minuteMin, minuteMax) {
+        if (hourMax < hourMin)
+          return false;
+        else if (hourMax === hourMin && minuteMax < minuteMin)
+          return false;
+        return true;
       },
       toggleTimepicker: function(action) {
         if (!action) {
@@ -175,13 +191,42 @@
         }
       }
   	},
-    mounted() {
-      document.getElementById('time_from1').onchange = () => {
-        this.data.time_start1 = document.getElementById('time_from1').value;
+    mounted() {   
+
+      document.getElementById('location').onchange = () => {
+        this.data.location = document.getElementById('location').value;
       };
 
-      document.getElementById('time_to1').onchange = () => {
-        this.data.time_end1 = document.getElementById('time_to1').value;
+      document.getElementById('title').onchange = () => {
+        this.data.title = document.getElementById('title').value;
+      };
+
+      document.getElementById('time_from1').onchange = (e) => {
+        this.timestart = M.Timepicker.getInstance(document.getElementById('time_from1'));
+        if (this.isTimeValid(0, this.timestart.hours, this.timestart.minutes)) {
+          this.data.time_start1 = document.getElementById('time_from1').value;
+          e.target.classList.add('valid');
+          e.target.classList.remove('invalid');
+        }
+        else {
+          this.data.time_start1 = '';
+          e.target.classList.remove('valid');
+          e.target.classList.add('invalid');
+        }
+      };
+
+      document.getElementById('time_to1').onchange = (e) => {
+        this.timeend = M.Timepicker.getInstance(document.getElementById('time_to1'));
+        if (this.isTimeValid(1, this.timeend.hours, this.timeend.minutes)) {
+          this.data.time_end1 = document.getElementById('time_to1').value;
+          e.target.classList.add('valid');
+          e.target.classList.remove('invalid');
+        }
+        else {
+          this.data.time_end1 = '';
+          e.target.classList.remove('valid');
+          e.target.classList.add('invalid');
+        }
       };
 
       document.getElementById('date1').onchange = () => {

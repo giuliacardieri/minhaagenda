@@ -19,7 +19,7 @@ export const userprefs = {
           { 'id': 6, 'type': 2, 'name': 'events', 'value': 1 },
           { 'id': 7, 'type': 2, 'name': 'images', 'value': 1 },
           { 'id': 8, 'type': 1, 'name': 'voice', 'value': 1 },
-          { 'id': 9, 'type': 1, 'name': 'swipe', 'value': 1 },
+          { 'id': 9, 'type': 1, 'name': 'swipe', 'value': 2 },
         ]));
       }
     },

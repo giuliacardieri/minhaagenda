@@ -1,7 +1,7 @@
 <template>
 	<div>      
 		<div class="header__tabs header__tabs col s12">
-      <ul class="tabs tabs__ul" v-tabs>
+      <ul class="tabs tabs-fixed-width tabs__ul" v-tabs>
         <li class="tab col s3 ul__li"><a class="li__a active"  href="#events">Events display</a></li>
         <li class="tab col s3 ul__li"><a class="li__a" href="#images">Images</a></li>
       </ul>
@@ -23,25 +23,23 @@
                     <div class="card">
                       <div class="card-content">
                         <span class="card-title">Aula de Algoritmos</span>         
-					              <div class="card__card-content card-content">
-					                <p>
-					                  <i class="material-icons p__icon">schedule</i>
-					                    14:00 - 15:00
-					                </p>
-					                <p>
-					                  <i class="material-icons p__icon">room</i>
-					                  UFScar
-					                </p>
-					                <p>
-					                  <i class="material-icons p__icon">school</i>
-					                  School
-					                </p>
-					              </div>
-					              <div class="card-action">
-					                <a href="#" v-on:click="data.completed = 1" class="card-action__btn--completed card-action__btn--indigo-text">Marcar como finalizado</a>
-					                <a href="#" class="card-action__btn--cancel card-action__btn--indigo-text">Cancelar</a>
-					              </div>
+				                <p>
+				                  <i class="material-icons p__icon">schedule</i>
+				                    14:00 - 15:00
+				                </p>
+				                <p>
+				                  <i class="material-icons p__icon">room</i>
+				                  UFScar
+				                </p>
+				                <p>
+				                  <i class="material-icons p__icon">school</i>
+				                  School
+				                </p>
                       </div>
+				              <div class="card-action">
+				                <a href="#" v-on:click="data.completed = 1" class="card-action__btn--completed card-action__btn--indigo-text">Finalizar</a>
+				                <a href="#" class="card-action__btn--cancel card-action__btn--indigo-text">Cancelar</a>
+				              </div>
                     </div>
                   </div>
                 </div>
@@ -65,24 +63,14 @@
 						      <li class="collection-item avatar">
 							      	<i class="material-icons p__icon circle indigo">school</i>
 							      <span class="title">Aula de algoritmos</span>
-							      <p>
-				              14:00 - 15:00 @UFSCar
-							      </p>
-							      <a href="#!" class="secondary-content">
-							      	<i class="material-icons">done</i>
-							      	<i class="material-icons">cancel</i>
-							      </a>
+							      <p>14:00 - 15:00</p>
+                    <p>@UFSCar</p>
 							    </li>
 						      <li class="collection-item avatar">
 							      	<i class="material-icons p__icon circle indigo">people</i>
 							      <span class="title">Ir ao cinema</span>
-							      <p>
-				              22:00 - 23:30 @Cinema
-							      </p>
-							      <a href="#!" class="secondary-content">
-							      	<i class="material-icons">done</i>
-							      	<i class="material-icons">cancel</i>
-							      </a>
+							      <p>22:00 - 23:30</p>
+                    <p>@Cinema</p>
 							    </li>
 						    </ul>
                 <div class="right-align">
@@ -133,7 +121,7 @@
                 <span class="collapsible-header__span-images-2 collapsible-header__span">
                   <i class="material-icons collapsible-header__icon">done</i>
                 </span>
-                Esconder cartão de evento com imagem
+                Mostrar cartão de evento sem imagem
               </div>
               <div class="collapsible-body">
                 <div class="row">

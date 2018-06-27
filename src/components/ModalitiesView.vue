@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div class="header__tabs col s12">
-	    <ul class="tabs tabs__ul" v-tabs>
+	    <ul class="tabs tabs-fixed-width tabs__ul" v-tabs>
 	      <li class="tab col s3 ul__li"><a class="li__a active" href="#speech">Speech</a></li>
 	      <li class="tab col s3 ul__li"><a class="li__a" href="#swipe">Swipe</a></li>
 	      <li class="tab col s3 ul__li"><a class="li__a" href="#voice">Voice</a></li>
@@ -67,8 +67,8 @@
 	            </div>
 	            <div class="collapsible-body">
 	              <div class="row">
-	                <div class="col s12 m6">
-	                  <div class="card">
+	                <div class="cards-wrapper col s12 m6">
+	                  <div class="cards-wrapper__card card">
 	                    <div class="card-content">
 	                      <span class="card-title">Um cartão</span>
 	                      <p>Esse cartão não permite o movimento swipe.</p>
@@ -93,12 +93,12 @@
 	            </div>
 	            <div class="collapsible-body">
 	              <div class="row">
-	                <div class="col s12 m6">
-	                  <v-touch id="card-test" class="card" v-on:swiperight="activateSwipe(2, 2, 'test');" v-on:swipeleft="activateSwipe(1, 2, 'test')">
+	                <div class="cards-wrapper col s12 m6">
+	                  <v-touch v-bind:swipe-options="{ direction:'horizontal' }" id="card-test" class="cards-wrapper__card card" v-on:swiperight="activateSwipe(2, 2, 'test');" v-on:swipeleft="activateSwipe(1, 2, 'test')">
 	                    <div class="card-content">
 	                      <span class="card-title">Um cartão</span>
-	                      <p>Para cancelar um evento, faça o movimento para esquerda.</p>
-	                      <p>Para marcar como finalizado um evento, faça o movimento para direita.</p>
+	                      <p>Para <span class="bold-text">cancelar</span> um evento, faça o movimento para esquerda.</p>
+	                      <p>Para <span class="bold-text">finalizar</span> um evento, faça o movimento para direita.</p>
 	                    </div>
 	                  </v-touch>
 	                </div>

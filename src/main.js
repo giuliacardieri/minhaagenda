@@ -31,6 +31,7 @@ Vue.directive('datepicker', {
   inserted: function (el) {
     var instances = M.Datepicker.init(document.querySelectorAll('.datepicker'), {
       format: 'yyyy-mm-dd',
+      setDefaultDate: 'today',
       i18n:  {
         cancel: 'cancelar',
         clear: 'limpar',
@@ -103,7 +104,7 @@ Vue.directive('select', {
 
 Vue.directive('timepicker', {
   inserted: function (el) {
-    var instances = M.Timepicker.init(document.querySelectorAll('.timepicker'), {
+    var timepickerInstances = M.Timepicker.init(document.querySelectorAll('.timepicker'), {
       twelveHour: false,
       i18n:  {
         cancel: 'cancelar',

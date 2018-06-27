@@ -14,10 +14,21 @@ export const modalities = {
         for(i = event.resultIndex; i < event.results.length; ++i) {
           text += event.results[i][0].transcript;
         }
-        //console.log('text: ' + text); // showing what he heard
+        console.log('text: ' + text); // showing what he heard
         
-        document.getElementById(element).setAttribute('value', text.toLowerCase());
-        M.updateTextFields();
+        if (text !== '') {
+          
+          document.getElementById(element).setAttribute('value', text.toLowerCase());
+          if (element === 'title'){
+            var event1 = new Event('change');
+            document.getElementById(element).dispatchEvent(event1);
+          } else {
+            var event2 = new Event('change')
+            document.getElementById(element).dispatchEvent(event2);
+          }
+
+          M.updateTextFields();
+        }
       }
     },
     speechSynthesis: function(text) {
