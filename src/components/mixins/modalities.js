@@ -18,8 +18,8 @@ export const modalities = {
         
         if (text !== '') {
           
-          document.getElementById(element).setAttribute('value', text.toLowerCase());
-          if (element === 'title'){
+          document.getElementById(element).value = text.toLowerCase();
+          if (element === 'title') {
             var event1 = new Event('change');
             document.getElementById(element).dispatchEvent(event1);
           } else {

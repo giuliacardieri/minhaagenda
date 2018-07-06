@@ -19,7 +19,7 @@
           </div>
           <div class="row datepicker-elem-group--material" v-if="user[1].value === 1">
             <div class="input-field input-elem-group col s12">
-              <input id="date" name="date" type="text" class="input-elem-group__input datepicker-elem validate datepicker" v-datepicker v-model="data.date">
+              <datepicker-mat id="date" name="date" class="input-elem-group__input datepicker-elem validate" v-model="data.date"></datepicker-mat>
               <label for="date" class="input-elem-group__label">Data</label>
             </div>
           </div>
@@ -31,12 +31,12 @@
           </div>
           <div class="row timepicker-elem-group--material" v-if="user[4].value === 1">
             <div class="input-field input-elem-group col s6">
-              <input id="time_from" name="time_start" type="text" class="input-elem-group__input timepicker" v-timepicker v-model="data.time_start">
-              <label for="time_from" class="input-elem-group__label">Horário de início</label>
+              <timepicker id="time_from" name="time_start" type="text" class="input-elem-group__input" v-bind:class="{ 'browser-default': user[2].value == 2}" v-model="data.time_start"></timepicker>
+              <label for="time_from" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Horário de início</label>
             </div>
             <div class="input-field input-elem-group col s6">
-              <input id="time_to" name="time_end" type="text" class="input-elem-group__input timepicker" v-timepicker v-model="data.time_end">
-              <label for="time_to" class="input-elem-group__label">Horário de término</label>
+              <timepicker id="time_to" name="time_end" type="text" class="input-elem-group__input" v-bind:class="{ 'browser-default': user[2].value == 2}" v-model="data.time_end"></timepicker>
+              <label for="time_to" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Horário de término</label>
             </div>
           </div>
           <div class="timepicker-elem-group--browser-default" v-if="user[4].value === 2">
@@ -74,39 +74,7 @@
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <select id="category" name="category" class="select-elem--material" v-if="user[3].value === 1" v-select v-model="data.category">
-                <option value="" disabled selected>Escolha sua categoria</option>
-                <option value="Exercício">Exercício</option>
-                <option value="Família">Família</option>
-                <option value="Casa">Casa</option>
-                <option value="Comida">Comida</option>
-                <option value="Compras">Compras</option>
-                <option value="Estudo">Estudo</option>
-                <option value="Outros">Outros</option>
-                <option value="Pessoal">Pessoal</option>
-                <option value="Pets">Pets</option>
-                <option value="Saúde">Saúde</option>
-                <option value="Social">Social</option>
-                <option value="Trabalho">Trabalho</option>
-                <option value="Viagem">Viagem</option>
-              </select>
-              <label v-if="user[3].value === 1" for="category" class="select-elem__label">Categoria</label>
-              <select id="category" name="category" class="select-elem--browser-default browser-default" v-if="user[3].value === 2" v-model="data.category">
-                <option value="" disabled selected>Escolha sua categoria</option>
-                <option value="Exercício">Exercício</option>
-                <option value="Família">Família</option>
-                <option value="Casa">Casa</option>
-                <option value="Comida">Comida</option>
-                <option value="Compras">Compras</option>
-                <option value="Estudo">Estudo</option>
-                <option value="Outros">Outros</option>
-                <option value="Pessoal">Pessoal</option>
-                <option value="Pets">Pets</option>
-                <option value="Saúde">Saúde</option>
-                <option value="Social">Social</option>
-                <option value="Trabalho">Trabalho</option>
-                <option value="Viagem">Viagem</option>
-              </select>
+              <select-input id="category" name="category" v-model="data.category"></select-input>
             </div>
           </div>
           <div class="row">
@@ -129,6 +97,7 @@
     data() {
       return {
         'user': this.getUser(),
+        'categories': this.getCategories(),
         'timestart': {
           'hours': '',
           'minutes': ''
@@ -144,7 +113,7 @@
           'time_end': '',
           'location': '',
           'category': '',
-          'allday': 0,
+          'allday': false,
         }
       }
     },
@@ -206,20 +175,32 @@
         return true;
       },
       toggleTimepicker: function(action) {
-        if (!action)
+        if (!action) {
           document.getElementById('time_from').disabled = true;
-        else
+          document.getElementById('time_to').disabled = true;
+        }
+        else {
           document.getElementById('time_from').disabled = false;
+          document.getElementById('time_to').disabled = false;
+        }
       }
   	},
     mounted() {   
 
-      document.getElementById('location').onchange = () => {
-        this.data.location = document.getElementById('location').value;
+      document.getElementById('location').onchange = (e) => {
+        this.data.location = (e.target.value).trim();
+        if (this.data.location.length > 0) {
+          e.target.classList.add('valid');
+          e.target.classList.remove('invalid');
+        }
       };
 
-      document.getElementById('title').onchange = () => {
-        this.data.title = document.getElementById('title').value;
+      document.getElementById('title').onchange = (e) => {
+        this.data.title = e.target.value.trim();
+        if (this.data.title.length > 0) {
+          e.target.classList.add('valid');
+          e.target.classList.remove('invalid');
+        }
       };
 
       document.getElementById('time_from').onchange = (e) => {
@@ -252,11 +233,11 @@
         }
       };
 
-      document.getElementById('date').onchange = () => {
+      document.getElementById('date').onchange = (e) => {
         this.data.date = e.target.value;
       };
 
-      document.getElementById('category').onchange = () => {
+      document.getElementById('category').onchange = (e) => {
         this.data.category = e.target.value;
       };
 
@@ -311,6 +292,7 @@
 
 	.input-field > .input-elem-group__label:not(.label-icon).browser-default.active,
 	.input-field > .select-elem__label:not(.label-icon).browser-default.active {
+    font-size: 1rem;
 		transform: translateY(12px) scale(1);
 		transform-origin: 0 0;
 	}

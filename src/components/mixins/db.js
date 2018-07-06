@@ -27,142 +27,50 @@ export const db = {
           return false;
       }
       return true;
-    },      
+    },
+    getCategories: function() {
+      let categories = [
+        { id: 0, name: 'Exercício' },
+        { id: 1, name: 'Família' },
+        { id: 2, name: 'Casa' },
+        { id: 3, name: 'Comida' },
+        { id: 4, name: 'Compras' },
+        { id: 5, name: 'Estudo' },
+        { id: 6, name: 'Outros' },
+        { id: 7, name: 'Pessoal' },
+        { id: 8, name: 'Pets' },
+        { id: 9, name: 'Saúde' },
+        { id: 10, name: 'Social' },
+        { id: 11, name: 'Trabalho' },
+        { id: 12, name: 'Viagem' }
+      ];
+
+      return categories;
+    },
+    getCategoryName: function(id) {
+      let categories = this.getCategories();
+      console.log(JSON.stringify(categories[id]));
+      return categories[id].name;
+    }, 
     setDB: function(new_db) {
       if (new_db)
        localStorage.setItem('agenda_db', JSON.stringify(new_db));
       else {
-        var db = [
+        let today = moment().format('YYYY-MM-DD');
+        let db = [
           {
             'id': 0,
-            'title': 'Levar mila ao veterinário',
-            'date': '2018-06-26',
+            'title': 'Ir ao supermercado',
+            'date': today,
             'time_start': '17:00',
             'time_end': '19:00',
-            'location': 'Veterinário Ishizuka',
-            'icon': 'pets',
-            'category': 'Pets',
+            'location': 'Mercado do zé',
+            'icon': 'local_mall',
+            'category': 'Compras',
             'completed': 0,
             'canceled': 0,
             'allday': false
           },
-          {
-            'id': 1,
-            'title': 'Limpar apartamento',
-            'date': '2018-06-26',
-            'time_start': '',
-            'time_end': '',
-            'location': 'Meu apartamento',
-            'icon': 'home',
-            'category': 'Casa',
-            'completed': 0,
-            'canceled': 0,
-            'allday': true,
-          },
-          // {
-          //   'id': 2,
-          //   'title': '2Levar mila ao veterinário',
-          //   'date': '2018-06-26',
-          //   'time_start': '17:00',
-          //   'time_end': '19:00',
-          //   'location': 'Veterinário Ishizuka',
-          //   'icon': 'pets',
-          //   'category': 'Pets',
-          //   'completed': 0,
-          //   'canceled': 0,
-          //   'allday': false
-          // },
-          // {
-          //   'id': 3,
-          //   'title': '3Limpar apartamento',
-          //   'date': '2018-06-26',
-          //   'time_start': '',
-          //   'time_end': '',
-          //   'location': 'Meu apartamento',
-          //   'icon': 'home',
-          //   'category': 'Casa',
-          //   'completed': 0,
-          //   'canceled': 0,
-          //   'allday': true,
-          // },
-          // {
-          //   'id': 4,
-          //   'title': '4Levar mila ao veterinário',
-          //   'date': '2018-06-26',
-          //   'time_start': '17:00',
-          //   'time_end': '19:00',
-          //   'location': 'Veterinário Ishizuka',
-          //   'icon': 'pets',
-          //   'category': 'Pets',
-          //   'completed': 0,
-          //   'canceled': 0,
-          //   'allday': false
-          // },
-          // {
-          //   'id': 5,
-          //   'title': '5Limpar apartamento',
-          //   'date': '2018-06-26',
-          //   'time_start': '',
-          //   'time_end': '',
-          //   'location': 'Meu apartamento',
-          //   'icon': 'home',
-          //   'category': 'Casa',
-          //   'completed': 0,
-          //   'canceled': 0,
-          //   'allday': true,
-          // },
-          // {
-          //   'id': 6,
-          //   'title': '6Levar mila ao veterinário',
-          //   'date': '2018-06-26',
-          //   'time_start': '17:00',
-          //   'time_end': '19:00',
-          //   'location': 'Veterinário Ishizuka',
-          //   'icon': 'pets',
-          //   'category': 'Pets',
-          //   'completed': 0,
-          //   'canceled': 0,
-          //   'allday': false
-          // },
-          // {
-          //   'id': 7,
-          //   'title': '7Limpar apartamento',
-          //   'date': '2018-06-26',
-          //   'time_start': '',
-          //   'time_end': '',
-          //   'location': 'Meu apartamento',
-          //   'icon': 'home',
-          //   'category': 'Casa',
-          //   'completed': 0,
-          //   'canceled': 0,
-          //   'allday': true,
-          // },
-          // {
-          //   'id': 8,
-          //   'title': '8Levar mila ao veterinário',
-          //   'date': '2018-06-26',
-          //   'time_start': '17:00',
-          //   'time_end': '19:00',
-          //   'location': 'Veterinário Ishizuka',
-          //   'icon': 'pets',
-          //   'category': 'Pets',
-          //   'completed': 0,
-          //   'canceled': 0,
-          //   'allday': false
-          // },
-          // {
-          //   'id': 9,
-          //   'title': '9Limpar apartamento',
-          //   'date': '2018-06-26',
-          //   'time_start': '',
-          //   'time_end': '',
-          //   'location': 'Meu apartamento',
-          //   'icon': 'home',
-          //   'category': 'Casa',
-          //   'completed': 0,
-          //   'canceled': 0,
-          //   'allday': true,
-          // },
         ];
         localStorage.setItem('agenda_db', JSON.stringify(db));
       }
@@ -183,31 +91,13 @@ export const db = {
         final_data.canceled =  0;
         final_data.time_start = '';
         final_data.time_end = '';
-
-        if (user[0].value == 1)
-          final_data.allday = data.allday1;
-        else 
-          final_data.allday = data.allday2;
-
-        if (user[1].value == 1)
-          final_data.date = data.date1;
-        else
-          final_data.date = data.date2;
+        final_data.allday = data.allday;
+        final_data.date = data.date;
+        final_data.category = this.getCategoryName(data.category);
 
         if (!final_data.allday) {
-          if (user[4].value == 1) {
-            final_data.time_start = data.time_start1;
-            final_data.time_end = data.time_end1;
-          } else {
-            final_data.time_start = data.time_start2;
-            final_data.time_end = data.time_end2;
-          }
-        }
-
-        if (user[3].value == 1) {
-          final_data.category = data.category1;
-        } else {
-          final_data.category = data.category2;
+          final_data.time_start = data.time_start;
+          final_data.time_end = data.time_end;
         }
 
         switch(final_data.category) {

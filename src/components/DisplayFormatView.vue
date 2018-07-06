@@ -159,7 +159,6 @@
     data() {
       return {
        showBody: null,
-       activeLink: 1,
        user: this.getUser()
       }
     },  

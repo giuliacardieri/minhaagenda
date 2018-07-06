@@ -8,12 +8,7 @@
   require('materialize-css')
 
   export default {
-    name: 'app',
-    data() {
-      return {
-       activeLink: 0,
-      }
-    },  
+    name: 'app', 
   }
 </script>
 
@@ -63,8 +58,10 @@
   .material-icons.input-field__speech-icon {
     color: var(--grey-darken-2);
     bottom: 10px;
+    line-height: 36px;
     position: absolute;
     right: 10px;
+    top: 0;
   }
 
   /* tabs */

@@ -11,7 +11,7 @@
           </div>
           <template v-else>
             <div v-if="user[6].value === 1" class="cards-wrapper col s12 m4">
-              <div v-for="data in this.db" v-if="(data.completed === 0) && (data.canceled === 0)">
+              <div v-for="data in db" :data="data" :key="data.id" v-if="(data.completed === 0) && (data.canceled === 0)">
                 <v-touch v-bind:swipe-options="{ direction:'horizontal' }" class="cards-wrapper__card card" v-on:swiperight="onSwipe(2, user[9].value, data.id)" v-on:swipeleft="onSwipe(1, user[9].value, data.id)" v-bind:id="'card-' + data.id" v-bind:class="{ card__hidden: data.completed == 1 }">
                   <div v-if="user[7].value === 1" class="card-image card__card-image">
                     <img :src="'./static/img/categories/' + data.category + '.jpg'" />
@@ -73,7 +73,7 @@
             </div>    
             <div v-else="user[6].value === 2" class="collection-wrapper">
               <ul class="collection-wrappper__collection collection">
-                <v-touch v-for="data in db" v-if="(data.completed === 0) && (data.canceled === 0)" class="collection__li collection-item avatar" v-bind:id="'card-' + data.id" v-bind:swipe-options="{ direction: 'horizontal', threshold: 1 }" v-on:swiperight="onSwipe(2, user[9].value, data.id)" v-on:swipeleft="onSwipe(1, user[9].value, data.id)">
+                <v-touch v-for="data in db" :data="data" :key="data.id" v-if="(data.completed === 0) && (data.canceled === 0)" class="collection__li collection-item avatar" v-bind:id="'card-' + data.id" v-bind:swipe-options="{ direction: 'horizontal', threshold: 1 }" v-on:swiperight="onSwipe(2, user[9].value, data.id)" v-on:swipeleft="onSwipe(1, user[9].value, data.id)">
                   <i class="material-icons p__icon circle indigo">{{ data.icon }}</i>
                   <p class="collection__p">
                     <span class="title">
@@ -127,7 +127,8 @@
         'db': this.getDB(),
         'user': this.getUser(),
         'swipeLeft': 0,
-        'swipeRight': 0
+        'swipeRight': 0,
+        activeLink: 0,
       }
     },
     methods: {
@@ -208,6 +209,10 @@
 
   .card__card-image--hidden {
     display: none;
+  }
+
+  .card .card__card-image img {
+    filter: blur(0.5px) brightness(0.75);
   }
 
   .collection .collection-item.avatar {

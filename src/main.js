@@ -5,12 +5,13 @@ import App from './App'
 import router from './router'
 
 import VueRouter from 'vue-router'
+import Moment from 'moment'
+import select from './components/select-input'
 
 Vue.config.productionTip = false
 
 Vue.use(VueRouter)
-
-Vue.use(require('moment'))
+Vue.use(Moment)
 
 var VueTouch = require('vue-touch')
 Vue.use(VueTouch, {name: 'v-touch'})
@@ -27,9 +28,10 @@ Vue.directive('tabs', {
   }
 })
 
-Vue.directive('datepicker', {
-  inserted: function (el) {
-    var instances = M.Datepicker.init(document.querySelectorAll('.datepicker'), {
+Vue.component('datepicker-mat', {
+  template: '<input type="text" class="datepicker" />',
+  mounted: function() {
+    let instances = M.Datepicker.init(document.querySelectorAll('.datepicker'), {
       format: 'yyyy-mm-dd',
       setDefaultDate: 'today',
       i18n:  {
@@ -96,14 +98,9 @@ Vue.directive('datepicker', {
   }
 })
 
-Vue.directive('select', {
-  inserted: function (el) {
-    var instances = M.FormSelect.init(document.querySelectorAll('.select-elem--material'));
-  }
-})
-
-Vue.directive('timepicker', {
-  inserted: function (el) {
+Vue.component('timepicker', {
+  template: '<input type="text" class="timepicker">',
+  mounted: function (el) {
     var timepickerInstances = M.Timepicker.init(document.querySelectorAll('.timepicker'), {
       twelveHour: false,
       i18n:  {
@@ -114,6 +111,8 @@ Vue.directive('timepicker', {
     });
   }
 })
+
+Vue.component('select-input', select)
 
 /* eslint-disable no-new */
 new Vue({

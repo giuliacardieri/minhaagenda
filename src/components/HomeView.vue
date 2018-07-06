@@ -42,5 +42,11 @@
         activeLink: 0
       }
     },
+    mounted() {
+      if (this.$route.name === 'events')
+        this.activeLink = 0;
+      else
+        this.activeLink = 1;
+    }
   }
 </script>

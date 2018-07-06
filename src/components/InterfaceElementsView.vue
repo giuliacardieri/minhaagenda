@@ -61,7 +61,7 @@
 			<div id="datepicker" class="tabs__div col s12">
 			  <div class="row">
 			    <ul class="collapsible" v-collapsible>
-			      <li class="collapsible__li datepicker__type1" v-on:click="showBody = 0" v-bind:class="{ chosen: user[1].value === 1,  active: showBody == 2 }">
+			      <li class="collapsible__li datepicker__type1" v-on:click="showBody = 2" v-bind:class="{ chosen: user[1].value === 1,  active: showBody == 2 }">
 			        <div class="li__collapsible-header collapsible-header">
 			          <span class="collapsible-header__span-datepicker-1 collapsible-header__span">
 			            <i class="material-icons collapsible-header__icon">done</i>
@@ -70,7 +70,7 @@
 			        </div>
 			        <div class="collapsible-body">
 			          <div class="input-field">
-			            <input type="text" class="datepicker datepicker-test" name="datepicker-type1" v-datepicker>
+			            <datepicker-mat class="datepicker-test" name="datepicker-type1"></datepicker-mat>
 			            <label for="datepicker-type1">Data</label>
 			          </div>
 			          <div class="right-align">
@@ -81,7 +81,7 @@
 			          </div>
 			        </div>
 			      </li>
-			      <li class="collapsible__li datepicker__type2" v-on:click="showBody = 1" v-bind:class="{ chosen: user[1].value === 2,  active: showBody == 3 }">
+			      <li class="collapsible__li datepicker__type2" v-on:click="showBody = 3" v-bind:class="{ chosen: user[1].value === 2,  active: showBody == 3 }">
 			        <div class="li__collapsible-header collapsible-header">
 			          <span class="collapsible-header__span-datepicker-2 collapsible-header__span">
 			            <i class="material-icons collapsible-header__icon">done</i>
@@ -107,7 +107,7 @@
 			<div id="input" class="tabs__div col s12">
 			  <div class="row">
 			    <ul class="collapsible" v-collapsible>
-			      <li class="collapsible__li input__type1" v-on:click="showBody = 0" v-bind:class="{ chosen: user[2].value === 1, active: showBody == 4 }">
+			      <li class="collapsible__li input__type1" v-on:click="showBody = 4" v-bind:class="{ chosen: user[2].value === 1, active: showBody == 4 }">
 			        <div class="li__collapsible-header collapsible-header">
 			          <span class="collapsible-header__span-input-1 collapsible-header__span">
 			            <i class="material-icons collapsible-header__icon">done</i>
@@ -127,7 +127,7 @@
 			          </div>
 			        </div>
 			      </li>
-			      <li class="collapsible__li input__type2" v-on:click="showBody = 1" v-bind:class="{ chosen: user[2].value === 2, active: showBody == 5 }">
+			      <li class="collapsible__li input__type2" v-on:click="showBody = 5" v-bind:class="{ chosen: user[2].value === 2, active: showBody == 5 }">
 			        <div class="li__collapsible-header collapsible-header">
 			          <span class="collapsible-header__span-input-2 collapsible-header__span">
 			            <i class="material-icons collapsible-header__icon">done</i>
@@ -153,7 +153,7 @@
 			<div id="select" class="tabs__div col s12">
 			  <div class="row">
 			    <ul class="collapsible" v-collapsible>
-			      <li class="collapsible__li select__type1" v-on:click="showBody = 0" v-bind:class="{ chosen: user[3].value === 1,  active: showBody == 6 }">
+			      <li class="collapsible__li select__type1" v-on:click="showBody = 6" v-bind:class="{ chosen: user[3].value === 1,  active: showBody == 6 }">
 			        <div class="li__collapsible-header collapsible-header">
 			          <span class="collapsible-header__span-select-1 collapsible-header__span">
 			            <i class="material-icons collapsible-header__icon">done</i>
@@ -162,12 +162,7 @@
 			        </div>
 			        <div class="collapsible-body">
 			          <div class="input-field">    
-			            <select class="select-elem--material" v-select>
-			              <option value="" disabled selected>Escolha sua opção</option>
-			              <option value="1">Opção 1</option>
-			              <option value="2">Opção 2</option>
-			              <option value="3">Opção 3</option>
-			            </select>
+			            <select-input isMaterial="true"></select-input>
 			          </div>
 			          <div class="right-align">
 			            <button v-on:click="activate(3,1)" v-bind:class="{ chosen: user[3].value === 1 }" class="select-1 btn btn-wrapper__btn-choose waves-effect">
@@ -177,7 +172,7 @@
 			          </div>
 			        </div>
 			      </li>
-			      <li class="collapsible__li select__type2" v-on:click="showBody = 1" v-bind:class="{ chosen: user[3].value === 2,  active: showBody == 7 }">
+			      <li class="collapsible__li select__type2" v-on:click="showBody = 7" v-bind:class="{ chosen: user[3].value === 2,  active: showBody == 7 }">
 			        <div class="li__collapsible-header collapsible-header">
 			          <span class="collapsible-header__span-select-2 collapsible-header__span">
 			            <i class="material-icons collapsible-header__icon">done</i>
@@ -186,12 +181,7 @@
 			        </div>
 			        <div class="collapsible-body">
 			          <div class="input-field">
-			            <select class="select-elem--browser-default browser-default">
-			              <option value="" disabled selected>Escolha sua opção</option>
-			              <option value="1">Opção 1</option>
-			              <option value="2">Opção 2</option>
-			              <option value="3">Opção 3</option>
-			            </select>
+			            <select-input isDefault="true"></select-input>
 			          </div>
 			          <div class="right-align">
 			            <button v-on:click="activate(3,2)" v-bind:class="{ chosen: user[3].value === 2 }" class="select-2 btn btn-wrapper__btn-choose  waves-effect">
@@ -207,7 +197,7 @@
 			<div id="timepicker" class="tabs__div col s12">
 			  <div class="row">
 			    <ul class="collapsible" v-collapsible>
-			      <li class="collapsible__li timepicker__type1" v-on:click="showBody = 0" v-bind:class="{ chosen: user[4].value === 1,  active: showBody == 8 }">
+			      <li class="collapsible__li timepicker__type1" v-on:click="showBody = 8" v-bind:class="{ chosen: user[4].value === 1,  active: showBody == 8 }">
 			        <div class="li__collapsible-header collapsible-header">
 			          <span class="collapsible-header__span-timepicker-1 collapsible-header__span">
 			            <i class="material-icons collapsible-header__icon">done</i>
@@ -216,7 +206,7 @@
 			        </div>
 			        <div class="collapsible-body">
 			          <div class="input-field">
-			            <input type="text" class="timepicker" name="timepicker-type1" v-timepicker>
+			            <timepicker type="text" name="timepicker-type1" /></timepicker>
 			            <label for="timepicker-type1">Horário</label>
 			          </div>
 			          <div class="right-align">
@@ -227,7 +217,7 @@
 			          </div>
 			        </div>
 			      </li>
-			      <li class="collapsible__li timepicker__type2" v-on:click="showBody = 1" v-bind:class="{ chosen: user[4].value === 2,  active: showBody == 9 }">
+			      <li class="collapsible__li timepicker__type2" v-on:click="showBody = 9" v-bind:class="{ chosen: user[4].value === 2,  active: showBody == 9 }">
 			        <div class="li__collapsible-header collapsible-header">
 			          <span class="collapsible-header__span-timepicker-2 collapsible-header__span">
 			            <i class="material-icons collapsible-header__icon">done</i>
@@ -264,7 +254,6 @@
     data() {
       return {
        showBody: null,
-       activeLink: 1,
        user: this.getUser(),
       }
     },  

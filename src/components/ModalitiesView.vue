@@ -42,7 +42,7 @@
 	              <div class="input-field input-elem-group">
 	                <input id="test" type="text" name="speech-type2" class="input-elem-group__input input-test">
 	                <i class="speech-elem speech-test material-icons input-field__speech-icon" v-on:click="onSpeak('test')">mic</i>
-	                <label for="speech-type2" class="input-elem-group__label input-test">Clique no microfone para usar voz, ou digite</label>
+	                <label for="speech-type2" class="input-elem-group__label input-test">Clique no microfone para usar voz</label>
 	              </div>
 	              <div class="right-align">
 	                <button v-on:click="activate(5,2)" v-bind:class="{ chosen: user[5].value === 2 }"  class="speech-2 btn btn-wrapper__btn-choose waves-effect">
@@ -172,7 +172,6 @@
     data() {
       return {
        showBody: null,
-       activeLink: 1,
        user: this.getUser()
       }
     },  

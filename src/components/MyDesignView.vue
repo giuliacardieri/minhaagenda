@@ -44,17 +44,7 @@
     </div>
     </div>
   </div>
-</template>
-
-<script>
-  export default {
-    data() {
-      return {
-       activeLink: 1,
-      }
-    },  
-  }
-</script>
+</template>>
 
 <style>
   .collapsible__li:focus, .li__collapsible-header:focus {
