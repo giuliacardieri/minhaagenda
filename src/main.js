@@ -28,11 +28,11 @@ Vue.directive('tabs', {
   }
 })
 
-Vue.directive('modal', {
-  inserted: function (el) {
-    var modalElem = M.Modal.init(document.querySelectorAll('.modal'));
-  }
-})
+// Vue.directive('modal', {
+//   inserted: function (el) {
+//     var modalElem = M.Modal.init(document.querySelectorAll('.modal'));
+//   }
+// })
 
 Vue.component('datepicker-mat', {
   template: '<input type="text" class="datepicker" />',
