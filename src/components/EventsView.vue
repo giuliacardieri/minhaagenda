@@ -1,5 +1,14 @@
 <template>
   <div>
+    <div id="modalOptions" class="modal" v-modal>
+      <div class="modal-content">
+        <p>Você realmente deseja {{ action.name }} o evento "{{ event.name }}"?</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!"  class="modal-close waves-effect waves-green btn-flat">Não</a>
+        <a href="#!" v-on:click="actionCard(action.id, event.id)" class="modal-close waves-effect waves-green btn-flat">Sim</a>
+      </div>
+    </div>
     <div class="main__app-bar-secondary">
         <p class="app-bar-secondary__p grey-text text-darken-1">Hoje</p>
     </div>
@@ -65,8 +74,8 @@
                     </p>
                   </div>
                   <div class="card-action">
-                    <a href="#" v-on:click="actionCard(1, data.id)" class="card-action__btn--completed card-action__btn--indigo-text">Finalizar</a>
-                    <a href="#" v-on:click="actionCard(0, data.id)" class="card-action__btn--cancel card-action__btn--indigo-text">Cancelar</a>
+                    <a href="#" data-target="modalOptions" v-on:click="showModal({id: data.id, name: data.title }, 1)" class="card-action__btn--completed card-action__btn--indigo-text modal-trigger">Finalizar</a>
+                    <a href="#" data-target="modalOptions" v-on:click="showModal({id: data.id, name: data.title }, 0)" class="card-action__btn--cancel card-action__btn--indigo-text modal-trigger"">Cancelar</a>
                   </div>
                 </v-touch>
               </div>
@@ -102,8 +111,8 @@
                     @{{data.location}}
                   </p>
                   <a href="#!" v-if="user[9].value === 1" class="collection__secondary-content secondary-content">
-                    <i v-on:click="actionCard(1, data.id)" class="secondary-content__icon material-icons">done</i>
-                    <i v-on:click="actionCard(0, data.id)" class="secondary-content__icon material-icons">cancel</i>
+                    <i data-target="modalOptions" v-on:click="showModal({id: data.id, name: data.title }, 1)" class="secondary-content__icon material-icons modal-trigger">done</i>
+                    <i data-target="modalOptions" v-on:click="showModal({id: data.id, name: data.title }, 0)" class="secondary-content__icon material-icons modal-trigger">cancel</i>
                   </a>
                 </v-touch>
               </ul>
@@ -128,19 +137,40 @@
         'user': this.getUser(),
         'swipeLeft': 0,
         'swipeRight': 0,
-        activeLink: 0,
+        'activeLink': 0,
+        'action': {
+          id: null,
+          name: null
+        },
+        'event': {
+          id: null,
+          name: null
+        }
       }
     },
     methods: {
+      showModal: function(elem, type) {
+        this.action.id = type;
+        this.event.id = elem.id;
+        this.event.name = elem.name;
+
+        if (type === 0)
+         this.action.name = 'cancelar';
+        else
+         this.action.name = 'finalizar';
+
+        var modal = M.Modal.getInstance('#modalElem');
+        modal.open();
+
+      },
       actionCard: function(type, id) {
         let sorted_db = this.sortDB(this.db, 'id');
-        let message;
         if (type === 0) {
-          message = 'Evento cancelado';
           sorted_db[id].canceled = 1;
+          M.toast({html: 'Evento cancelado'})
         } else {
-          message = 'Evento finalizado';
           sorted_db[id].completed = 1;
+          M.toast({html: 'Evento finalizado'})
         }
         sorted_db = this.sortDB(sorted_db, 'time_start');
         this.setDB(sorted_db);

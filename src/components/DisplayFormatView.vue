@@ -147,7 +147,7 @@
       </div>
 	  </div>
 		<div class="row template__button-wrapper">
-			<router-link to="/mydesign" class="btn button-wrapper__btn--back button-wrapper__btn--pink">Back</router-link>
+			<router-link to="/mydesign" class="btn button-wrapper__btn--back button-wrapper__btn--indigo">Voltar</router-link>
 		</div>
 	</div>
 </template>

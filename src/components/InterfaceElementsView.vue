@@ -36,7 +36,7 @@
 			        </div>
 			      </li>
 			      <li class="collapsible__li checkbox__type2" v-on:click="showBody = 1" v-bind:class="{ chosen: user[0].value === 2, active: showBody == 1 }">
-			        <div class="collapsible-header">
+			        <div class="li__collapsible-header collapsible-header">
 			          <span class="collapsible-header__span-checkbox-2 collapsible-header__span">
 			            <i class="material-icons collapsible-header__icon">done</i>
 			          </span>
@@ -71,7 +71,7 @@
 			        <div class="collapsible-body">
 			          <div class="input-field">
 			            <datepicker-mat class="datepicker-test" name="datepicker-type1"></datepicker-mat>
-			            <label for="datepicker-type1">Data</label>
+			            <label for="datepicker-type1">Definir data</label>
 			          </div>
 			          <div class="right-align">
 			            <button v-on:click="activate(1,1)" v-bind:class="{ chosen: user[1].value === 1 }" class="datepicker-1 btn btn-wrapper__btn-choose waves-effect">
@@ -91,7 +91,7 @@
 			        <div class="collapsible-body">
 			          <div class="input-field">
 			            <input type="date" name="datepicker-type2">
-			            <label for="datepicker-type2">Data</label>
+			            <label for="datepicker-type2">Definir data</label>
 			          </div>
 			          <div class="right-align">
 			            <button v-on:click="activate(1,2)" v-bind:class="{ chosen: user[1].value === 2 }" class="datepicker-2 btn btn-wrapper__btn-choose waves-effect">
@@ -242,7 +242,7 @@
 			</div>
 		</div>
 		<div class="row template__button-wrapper">
-			<router-link to="/mydesign" class="btn button-wrapper__btn--back button-wrapper__btn--pink">Back</router-link>
+			<router-link to="/mydesign" class="btn button-wrapper__btn--back button-wrapper__btn--indigo">Voltar</router-link>
 		</div>
 	</div>
 </template>

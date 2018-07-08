@@ -126,6 +126,7 @@
 	            </div>
 	            <div class="collapsible-body">
 	              <h3>Um título</h3>
+	              <p>Que não permite o uso de ditação de voz ao clicar no ícone.</p>
 	              <div class="right-align">
 	                <button v-on:click="activate(8,1)" v-bind:class="{ chosen: user[8].value === 1 }"  class="voice-1 btn btn-wrapper__btn-choose waves-effect">
 			            	<span class="span__chosen">Escolhido</span>
@@ -144,8 +145,9 @@
 	            <div class="collapsible-body">
 	              <h3>
 	              	Um título
-	              	<i class="material-icons voice-icon" v-on:click="speechSynthesis('Um título')">volume_up</i>
+	              	<i class="material-icons voice-icon" v-on:click="speechSynthesis('Um título, que permite o uso de ditação de voz ao clicar no ícone.')">volume_up</i>
 	              </h3>
+	              <p>Que permite o uso de ditação de voz ao clicar no ícone.</p>
 	              <div class="right-align">
 	                <button v-on:click="activate(8,2)" v-bind:class="{ chosen: user[8].value === 2 }"  class="voice-2 btn btn-wrapper__btn-choose waves-effect">
 			            	<span class="span__chosen">Escolhido</span>
@@ -159,7 +161,7 @@
 	    </div>
 	  </div>
 		<div class="row template__button-wrapper">
-			<router-link to="/mydesign" class="btn button-wrapper__btn--back button-wrapper__btn--pink">Back</router-link>
+			<router-link to="/mydesign" class="btn button-wrapper__btn--back button-wrapper__btn--indigo">Voltar</router-link>
 		</div>
 	</div>
 </template>

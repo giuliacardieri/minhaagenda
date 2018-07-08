@@ -64,6 +64,20 @@
     top: 0;
   }
 
+  .btn.button-wrapper__btn--indigo {
+    background-color: var(--indigo);
+  }
+
+  .btn.btn-wrapper__btn-choose {
+    background-color: var(--indigo);
+
+  }
+
+  .btn.btn-wrapper__btn-choose.chosen {
+    background-color: var(--pink-lighten-2);
+
+  }
+
   /* tabs */
   .header__tabs--hidden {
     display: none;
@@ -130,6 +144,10 @@
   .collapsible__li.chosen .collapsible-header__span {
     display: initial;
   } 
+
+  .collapsible__li.chosen .li__collapsible-header {
+    font-weight: 600;
+  }
 
   .collapsible-header__span {
     display: none;

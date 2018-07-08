@@ -55,6 +55,10 @@
     background-color: var(--pink-lighten-2);
   }
 
+  .collapsible-body__btn--indigo {
+    background-color: var(--indigo);
+  }
+
   .collapsible-body__p {
     margin: 0 0 25px 0;
   }
