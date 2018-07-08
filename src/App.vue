@@ -13,8 +13,19 @@
 </script>
 
 <style>
-  @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
   @import url('materialize-css/static/css/materialize.min.css');
+
+  @font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url('materialize-css/static/fonts/MaterialIcons-Regular.eot'); /* For IE6-8 */
+    src: local('Material Icons'),
+      local('MaterialIcons-Regular'),
+      url('materialize-css/static/fonts/MaterialIcons-Regular.woff2') format('woff2'),
+      url('materialize-css/static/fonts/MaterialIcons-Regular.woff') format('woff'),
+      url('materialize-css/static/fonts/MaterialIcons-Regular.ttf') format('truetype');
+  }
 
   :root { 
     --indigo: #3f51b5;

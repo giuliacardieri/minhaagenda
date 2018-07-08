@@ -21,7 +21,7 @@
           <template v-else>
             <div v-if="user[6].value === 1" class="cards-wrapper col s12 m4">
               <div v-for="data in db" :data="data" :key="data.id" v-if="(data.completed === 0) && (data.canceled === 0)">
-                <v-touch v-bind:swipe-options="{ direction:'horizontal' }" class="cards-wrapper__card card" v-on:swiperight="onSwipe(2, user[9].value, { id: data.id, name: data.title })" v-on:swipeleft="onSwipe(1, user[9].value, { id: data.id, name: data.title })" v-bind:id="'card-' + data.id" v-bind:class="{ card__hidden: data.completed == 1 }">
+                <v-touch v-bind:swipe-options="{ direction:'horizontal' }" class="cards-wrapper__card card" v-on:swiperight="onSwipe('swiperight', user[9].value, { id: data.id, name: data.title })" v-on:swipeleft="onSwipe('swipeleft', user[9].value, { id: data.id, name: data.title })" v-bind:id="'card-' + data.id" v-bind:class="{ card__hidden: data.completed == 1 }">
                   <div v-if="user[7].value === 1" class="card-image card__card-image">
                     <img :src="'./static/img/categories/' + data.category + '.jpg'" />
                     <span class="card-title">
@@ -82,7 +82,7 @@
             </div>    
             <div v-else="user[6].value === 2" class="collection-wrapper">
               <ul class="collection-wrappper__collection collection">
-                <v-touch v-for="data in db" :data="data" :key="data.id" v-if="(data.completed === 0) && (data.canceled === 0)" class="collection__li collection-item avatar" v-bind:id="'card-' + data.id" v-bind:swipe-options="{ direction: 'horizontal', threshold: 1 }" v-on:swiperight="onSwipe(2, user[9].value, { id: data.id, name: data.title })" v-on:swipeleft="onSwipe(1, user[9].value, { id: data.id, name: data.title })">
+                <v-touch v-for="data in db" :data="data" :key="data.id" v-if="(data.completed === 0) && (data.canceled === 0)" class="collection__li collection-item avatar" v-bind:id="'card-' + data.id" v-bind:swipe-options="{ direction: 'horizontal', threshold: 1 }" v-on:swiperight="onSwipe('swiperight', user[9].value, { id: data.id, name: data.title })" v-on:swipeleft="onSwipe('swipeleft', user[9].value, { id: data.id, name: data.title })">
                   <i class="material-icons p__icon circle indigo">{{ data.icon }}</i>
                   <p class="collection__p">
                     <span class="title">
@@ -157,7 +157,7 @@
         this.event.id = elem.id;
         this.event.name = elem.name;
 
-        if (type === 0)
+        if (type === 'swipeleft')
          this.action.name = 'cancelar';
         else
          this.action.name = 'finalizar';
@@ -166,25 +166,24 @@
       },
       actionCard: function(type, id) {
         let sorted_db = this.sortDB(this.db, 'id');
-        if (type === 0) {
+
+        if (type === 'swipeleft') {
           sorted_db[id].canceled = 1;
           M.toast({html: 'Evento cancelado'})
         } else {
           sorted_db[id].completed = 1;
           M.toast({html: 'Evento finalizado'})
         }
+        
         sorted_db = this.sortDB(sorted_db, 'time_start');
         this.setDB(sorted_db);
       },
       onSwipe: function(type, active, elem) {
-        this.activateSwipe(type, active, elem.id);
-        if (active === 2) {
+        if (active === 2) {            
           setTimeout(() => {
-            if (type === 2)
-              this.updateModal(elem, 1);
-            else
-              this.updateModal(elem, 0);
+            this.updateModal(elem, type);
           }, 1000);
+          this.activateSwipe(type, elem.id);
         }
       },
       isEmpty: function() {
