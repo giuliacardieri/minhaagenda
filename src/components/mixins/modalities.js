@@ -37,17 +37,34 @@ export const modalities = {
       window.speechSynthesis.speak(synth);
     },
     activateSwipe: function(type, active, id) {
-      if (active == 2) {
+      let element = document.getElementById('card-' +  id);
+
+      if (active == 2 && (!element.classList.contains('swipeleft') && !element.classList.contains('swiperight'))) {
 
         if (id === 'test') {
-          document.getElementById('card-' +  id).classList.remove('swipeleft', 'swiperight');
+          element.classList.remove('swipeleft', 'swiperight');
         }
 
-        if (type === 1)
-          document.getElementById('card-' +  id).classList.add('swipeleft');
+        if (type === 1 )
+          element.classList.add('swipeleft');
         else
-          document.getElementById('card-' +  id).classList.add('swiperight');
+          element.classList.add('swiperight');
+
+      } else if (active == 2 && (element.classList.contains('swipeleft') || element.classList.contains('swiperight'))) {
+        this.deactivateSwipe(type, active, id);
       }
     },
+    deactivateSwipe: function(type, active, id) {
+      let element = document.getElementById('card-' +  id);
+
+      if (type === 1 )
+        element.classList.remove('swipeleft');
+      else
+        element.classList.remove('swiperight');
+
+      void element.offsetWidth;
+
+      this.activateSwipe(type, active, id);
+    }
   }
 }
