@@ -36,10 +36,6 @@
 				                  School
 				                </p>
                       </div>
-				              <div class="card-action">
-				                <a href="#" v-on:click="data.completed = 1" class="card-action__btn--completed card-action__btn--indigo-text">Finalizar</a>
-				                <a href="#" class="card-action__btn--cancel card-action__btn--indigo-text">Cancelar</a>
-				              </div>
                     </div>
                   </div>
                 </div>
@@ -99,7 +95,7 @@
                   <div class="col s12 m6">
                     <div class="card">
                       <div class="card-image card__card-image card__card-image--test">
-                        <img src="static/img/categories/casa.jpg" alt="card image example, a living room in an apartment. An open door with curtains showing a partial view of a landscape on daylight.">
+                        <img src="static/img/categories/Casa.jpg" alt="card image example, a living room in an apartment. An open door with curtains showing a partial view of a landscape on daylight.">
                         <span class="card-title">Um cartão</span>
                       </div>
                       <div class="card-content">

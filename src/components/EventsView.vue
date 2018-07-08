@@ -110,7 +110,7 @@
                   <p class="collection__p">
                     @{{data.location}}
                   </p>
-                  <a href="#!" v-if="user[9].value === 1" class="collection__secondary-content secondary-content">
+                  <a href="#!" class="collection__secondary-content secondary-content">
                     <i data-target="modalOptions" v-on:click="showModal({id: data.id, name: data.title }, 1)" class="secondary-content__icon material-icons modal-trigger">done</i>
                     <i data-target="modalOptions" v-on:click="showModal({id: data.id, name: data.title }, 0)" class="secondary-content__icon material-icons modal-trigger">cancel</i>
                   </a>
