@@ -30,27 +30,31 @@ export const db = {
     },
     getCategories: function() {
       let categories = [
-        { id: 0, name: 'Exercício' },
-        { id: 1, name: 'Família' },
-        { id: 2, name: 'Casa' },
-        { id: 3, name: 'Comida' },
-        { id: 4, name: 'Compras' },
-        { id: 5, name: 'Estudo' },
-        { id: 6, name: 'Outros' },
-        { id: 7, name: 'Pessoal' },
-        { id: 8, name: 'Pets' },
-        { id: 9, name: 'Saúde' },
-        { id: 10, name: 'Social' },
-        { id: 11, name: 'Trabalho' },
-        { id: 12, name: 'Viagem' }
+        { id: 0, name: 'Exercício', img: 'exercicio' },
+        { id: 1, name: 'Família', img: 'familia' },
+        { id: 2, name: 'Casa', img: 'casa'},
+        { id: 3, name: 'Comida', img: 'comida' },
+        { id: 4, name: 'Compras', img: 'compras' },
+        { id: 5, name: 'Estudo', img: 'estudo' },
+        { id: 6, name: 'Outros', img: 'outros' },
+        { id: 7, name: 'Pessoal', img: 'pessoal' },
+        { id: 8, name: 'Pets', img: 'pets' },
+        { id: 9, name: 'Saúde', img: 'saude' },
+        { id: 10, name: 'Social', img: 'social' },
+        { id: 11, name: 'Trabalho', img: 'trabalho' },
+        { id: 12, name: 'Viagem', img: 'viagem' }
       ];
 
       return categories;
     },
-    getCategoryName: function(id) {
+    getCategoryItem: function(id, type) {
       let categories = this.getCategories();
-      console.log(JSON.stringify(categories[id]));
-      return categories[id].name;
+
+      if (type === 'name')
+        return categories[id].name;
+      else
+        return categories[id].img;
+
     }, 
     setDB: function(new_db) {
       if (new_db)
@@ -67,6 +71,7 @@ export const db = {
             'location': 'Mercado do zé',
             'icon': 'local_mall',
             'category': 'Compras',
+            'img': 'compras',
             'completed': 0,
             'canceled': 0,
             'allday': false
@@ -93,7 +98,8 @@ export const db = {
         final_data.time_end = '';
         final_data.allday = data.allday;
         final_data.date = data.date;
-        final_data.category = this.getCategoryName(data.category);
+        final_data.category = this.getCategoryItem(data.category, 'name');
+        final_data.img = this.getCategoryItem(data.category, 'img');
 
         if (!final_data.allday) {
           final_data.time_start = data.time_start;

@@ -2,9 +2,9 @@
 	<div>
 		<div class="header__tabs col s12">
 	    <ul class="tabs tabs-fixed-width tabs__ul" v-tabs>
-	      <li class="tab col s3 ul__li"><a class="li__a active" href="#speech">Speech</a></li>
+	      <li class="tab col s3 ul__li"><a class="li__a active" href="#speech">Voz</a></li>
 	      <li class="tab col s3 ul__li"><a class="li__a" href="#swipe">Swipe</a></li>
-	      <li class="tab col s3 ul__li"><a class="li__a" href="#voice">Voice</a></li>
+	      <li class="tab col s3 ul__li"><a class="li__a" href="#voice">Ditação</a></li>
 	    </ul>
 	  </div>
 	  <div class="row">

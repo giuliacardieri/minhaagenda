@@ -23,7 +23,7 @@
               <div v-for="data in db" :data="data" :key="data.id" v-if="(data.completed === 0) && (data.canceled === 0)">
                 <v-touch v-bind:swipe-options="{ direction:'horizontal' }" class="cards-wrapper__card card" v-on:swiperight="onSwipe('swiperight', user[9].value, { id: data.id, name: data.title })" v-on:swipeleft="onSwipe('swipeleft', user[9].value, { id: data.id, name: data.title })" v-bind:id="'card-' + data.id" v-bind:class="{ card__hidden: data.completed == 1 }">
                   <div v-if="user[7].value === 1" class="card-image card__card-image">
-                    <img :src="'./static/img/categories/' + data.category + '.jpg'" />
+                    <img :src="'./static/img/categories/' + data.img + '.jpg'" />
                     <span class="card-title">
                       {{ data.title }}
                       <i v-if="data.allday" class="material-icons voice-icon" v-on:click="speechSynthesis(`
@@ -74,8 +74,8 @@
                     </p>
                   </div>
                   <div class="card-action">
-                    <a href="#" data-target="modalOptions" v-on:click="updateModal({id: data.id, name: data.title }, 1)" class="card-action__btn--completed card-action__btn--indigo-text modal-trigger">Finalizar</a>
-                    <a href="#" data-target="modalOptions" v-on:click="updateModal({id: data.id, name: data.title }, 0)" class="card-action__btn--cancel card-action__btn--indigo-text modal-trigger"">Cancelar</a>
+                    <a href="#" data-target="modalOptions" v-on:click="updateModal({id: data.id, name: data.title }, 'swiperight')" class="card-action__btn--completed card-action__btn--indigo-text modal-trigger">Finalizar</a>
+                    <a href="#" data-target="modalOptions" v-on:click="updateModal({id: data.id, name: data.title }, 'swipeleft')" class="card-action__btn--cancel card-action__btn--indigo-text modal-trigger"">Cancelar</a>
                   </div>
                 </v-touch>
               </div>
@@ -111,8 +111,8 @@
                     @{{data.location}}
                   </p>
                   <a href="#!" class="collection__secondary-content secondary-content">
-                    <i v-on:click="updateModal({ id: data.id, name: data.title }, 1)" class="secondary-content__icon material-icons">done</i>
-                    <i v-on:click="updateModal({ id: data.id, name: data.title }, 0)" class="secondary-content__icon material-icons">cancel</i>
+                    <i v-on:click="updateModal({ id: data.id, name: data.title }, 'swipeleft')" class="secondary-content__icon material-icons">done</i>
+                    <i v-on:click="updateModal({ id: data.id, name: data.title }, 'swiperight')" class="secondary-content__icon material-icons">cancel</i>
                   </a>
                 </v-touch>
               </ul>

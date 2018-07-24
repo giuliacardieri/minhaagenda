@@ -2,8 +2,8 @@
 	<div>      
 		<div class="header__tabs header__tabs col s12">
       <ul class="tabs tabs-fixed-width tabs__ul" v-tabs>
-        <li class="tab col s3 ul__li"><a class="li__a active"  href="#events">Events display</a></li>
-        <li class="tab col s3 ul__li"><a class="li__a" href="#images">Images</a></li>
+        <li class="tab col s3 ul__li"><a class="li__a active"  href="#events">Exibição de dados</a></li>
+        <li class="tab col s3 ul__li"><a class="li__a" href="#images">Imagens</a></li>
       </ul>
     </div>    
 	  <div class="row">

@@ -28,11 +28,6 @@ Vue.directive('tabs', {
   }
 })
 
-// Vue.directive('modal', {
-//   inserted: function (el) {
-//     var modalElem = M.Modal.init(document.querySelectorAll('.modal'));
-//   }
-// })
 
 Vue.component('datepicker-mat', {
   template: '<input type="text" class="datepicker" />',
@@ -73,31 +68,31 @@ Vue.component('datepicker-mat', {
           'Dez'
         ],
         weekdays: [
+          'Domingo',
           'Segunda-feira',
           'Terça-feira',
           'Quarta-feira',
           'Quinta-feira',
           'Sexta-feira',
-          'Sábado',
-          'Domingo'
+          'Sábado'
         ],
         weekdaysShort: [
+          'Dom',
           'Seg',
           'Ter',
           'Qua',
           'Qui',
           'Sex',
-          'Sáb',
-          'Dom'
+          'Sáb'
         ],
         weekdaysAbbrev: [
+        'D',
         'S',
         'T',
         'Q',
         'Q',
         'S',
-        'S',
-        'D'
+        'S'
         ]
       },
     });
