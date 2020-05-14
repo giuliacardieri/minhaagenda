@@ -15,21 +15,21 @@
                 <span class="collapsible-header__span-events-1 collapsible-header__span">
                   <i class="material-icons collapsible-header__icon">done</i>
                 </span>
-                Mostrar eventos no formato cartão
+                Display events in card format
               </div>
               <div class="collapsible-body"> 
                 <div class="row">
                   <div class="col s12 m6">
                     <div class="card">
                       <div class="card-content">
-                        <span class="card-title">Aula de Algoritmos</span>         
+                        <span class="card-title">Algorithms Class</span>         
 				                <p>
 				                  <i class="material-icons p__icon">schedule</i>
-				                    14:00 - 15:00
+				                    2:00 - 3:00 PM
 				                </p>
 				                <p>
 				                  <i class="material-icons p__icon">room</i>
-				                  UFScar
+				                  University
 				                </p>
 				                <p>
 				                  <i class="material-icons p__icon">school</i>
@@ -41,8 +41,8 @@
                 </div>
                 <div class="right-align">
                   <button v-on:click="activate(6,1)" v-bind:class="{ chosen: user[6].value === 1 }"  class="events-1 btn btn-wrapper__btn-choose waves-effect">
-			            	<span class="span__chosen">Escolhido</span>
-			            	<span class="span__choose">Escolher</span>
+			            	<span class="span__chosen">Chosen</span>
+			            	<span class="span__choose">Choose</span>
 			            </button>
                 </div>
               </div>
@@ -52,27 +52,27 @@
                 <span class="collapsible-header__span-events-2 collapsible-header__span">
                   <i class="material-icons collapsible-header__icon">done</i>
                 </span>
-                Mostrar eventos no formato lista
+                Display events in list format
               </div>
               <div class="collapsible-body">
                 <ul class="collection">
 						      <li class="collection-item avatar">
 							      	<i class="material-icons p__icon circle indigo">school</i>
-							      <span class="title">Aula de algoritmos</span>
-							      <p>14:00 - 15:00</p>
-                    <p>@UFSCar</p>
+							      <span class="title">Algorithms Class</span>
+							      <p>2:00 - 3:00 PM</p>
+                    <p>@University</p>
 							    </li>
 						      <li class="collection-item avatar">
 							      	<i class="material-icons p__icon circle indigo">people</i>
-							      <span class="title">Ir ao cinema</span>
-							      <p>22:00 - 23:30</p>
-                    <p>@Cinema</p>
+							      <span class="title">Go to the movies</span>
+							      <p>10:00 - 11:30 PM</p>
+                    <p>@Movie theater</p>
 							    </li>
 						    </ul>
                 <div class="right-align">
                   <button v-on:click="activate(6,2)" v-bind:class="{ chosen: user[6].value === 2 }"  class="events-1 btn btn-wrapper__btn-choose waves-effect">
-			            	<span class="span__chosen">Escolhido</span>
-			            	<span class="span__choose">Escolher</span>
+			            	<span class="span__chosen">Chosen</span>
+			            	<span class="span__choose">Choose</span>
 			            </button>
                 </div>
               </div>
@@ -88,7 +88,7 @@
                 <span class="collapsible-header__span-images-1 collapsible-header__span">
                   <i class="material-icons collapsible-header__icon">done</i>
                 </span>
-                Mostrar cartão de evento com imagem
+                Display event card with image
               </div>
               <div class="collapsible-body">
                 <div class="row">
@@ -96,18 +96,18 @@
                     <div class="card">
                       <div class="card-image card__card-image card__card-image--test">
                         <img src="static/img/categories/Casa.jpg" alt="card image example, a living room in an apartment. An open door with curtains showing a partial view of a landscape on daylight.">
-                        <span class="card-title">Um cartão</span>
+                        <span class="card-title">A card</span>
                       </div>
                       <div class="card-content">
-                        <p>Cartão com imagem.</p>
+                        <p>Card with image.</p>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="right-align">
                   <button v-on:click="activate(7,1)" v-bind:class="{ chosen: user[7].value === 1 }"  class="images-1 btn btn-wrapper__btn-choose waves-effect">
-		            	<span class="span__chosen">Escolhido</span>
-		            	<span class="span__choose">Escolher</span>
+		            	<span class="span__chosen">Chosen</span>
+		            	<span class="span__choose">Choose</span>
 		            </button>
                 </div>
               </div>
@@ -117,23 +117,23 @@
                 <span class="collapsible-header__span-images-2 collapsible-header__span">
                   <i class="material-icons collapsible-header__icon">done</i>
                 </span>
-                Mostrar cartão de evento sem imagem
+                Display event card without image
               </div>
               <div class="collapsible-body">
                 <div class="row">
                   <div class="col s12 m6">
                     <div class="card">
                       <div class="card-content">
-                        <span class="card-title">Um cartão</span>
-                        <p>Cartão sem imagem.</p>
+                        <span class="card-title">A card</span>
+                        <p>Card without image.</p>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="right-align">
                   <button v-on:click="activate(7,2)" v-bind:class="{ chosen: user[7].value === 2 }"  class="events-2 btn btn-wrapper__btn-choose waves-effect">
-		            	<span class="span__chosen">Escolhido</span>
-		            	<span class="span__choose">Escolher</span>
+		            	<span class="span__chosen">Chosen</span>
+		            	<span class="span__choose">Choose</span>
 		            </button>
                 </div>
               </div>
@@ -143,7 +143,7 @@
       </div>
 	  </div>
 		<div class="row template__button-wrapper">
-			<router-link to="/mydesign" class="btn button-wrapper__btn--back button-wrapper__btn--indigo">Voltar</router-link>
+			<router-link to="/mydesign" class="btn button-wrapper__btn--back button-wrapper__btn--indigo">Back</router-link>
 		</div>
 	</div>
 </template>

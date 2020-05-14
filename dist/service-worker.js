@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["index.html","2aaeb003baa5f03ea10e4fe65f823a2f"],["service-worker.js","25b9f56ce8557823fa59d9b3041b4040"],["static/css/app.10672b1976365a7a6776907585632c26.css","f365c3e036cb46124f02373f47f54670"],["static/img/categories/Casa.jpg","f4f5fe9af8fd867233f592cdcc7d3d1e"],["static/img/categories/Comida.jpg","12971e000e58a0dd6efd628989375718"],["static/img/categories/Compras.jpg","94251f6e38f75562eb2286e76ccccdf4"],["static/img/categories/Estudo.jpg","564ba935ba073dc0d04b21a2cf36d747"],["static/img/categories/Exercício.jpg","0aa0b7342b013648db34c0acd87bc1c5"],["static/img/categories/Família.jpg","388e47f61b7b186f4096795d55f69e85"],["static/img/categories/Outros.jpg","69ccf48032b4d25146a2b8c9dd086968"],["static/img/categories/Pessoal.jpg","6dc077cd6c844012635c07df1d018f86"],["static/img/categories/Pets.jpg","9410d1204b6658963cb4286568b0f61d"],["static/img/categories/Saúde.jpg","d25534f28a6a4bb34a3c9a4edd8a6857"],["static/img/categories/Social.jpg","049e7c67c4e554bace0ec063e4001539"],["static/img/categories/Trabalho.jpg","d336a4aa3b1437567b9bad4c30ab31cc"],["static/img/categories/Viagem.jpg","9ada1da5d213841af82802bb3ea3b070"],["static/js/app.e504f9c1921af9caf5cb.js","ff7636961f1732fce0295e2300203035"],["static/js/manifest.2ae2e69a05c33dfc65f8.js","2f4fd3b092ed7f7e76dbb3976729742e"],["static/js/vendor.449e9fcce6d7f73697bf.js","aa1733a68a7aa64a9d7bdf73239458e2"]];
+var precacheConfig = [["index.html","14dbd3544a32386c986c688051da4011"],["service-worker.js","9a6ef5a7acfefc4f0492075e33fc288e"],["static/css/app.218f4e48e8b4d5ca7d28cb9b2547594e.css","694aee2b0bf0418b8777501b527a01c3"],["static/img/categories/Exercise.jpg","0aa0b7342b013648db34c0acd87bc1c5"],["static/img/categories/Family.jpg","388e47f61b7b186f4096795d55f69e85"],["static/img/categories/Food.jpg","12971e000e58a0dd6efd628989375718"],["static/img/categories/Health.jpg","d25534f28a6a4bb34a3c9a4edd8a6857"],["static/img/categories/Home.jpg","f4f5fe9af8fd867233f592cdcc7d3d1e"],["static/img/categories/Other.jpg","69ccf48032b4d25146a2b8c9dd086968"],["static/img/categories/Personal.jpg","6dc077cd6c844012635c07df1d018f86"],["static/img/categories/Pets.jpg","9410d1204b6658963cb4286568b0f61d"],["static/img/categories/Shopping.jpg","94251f6e38f75562eb2286e76ccccdf4"],["static/img/categories/Social.jpg","049e7c67c4e554bace0ec063e4001539"],["static/img/categories/Study.jpg","564ba935ba073dc0d04b21a2cf36d747"],["static/img/categories/Travel.jpg","9ada1da5d213841af82802bb3ea3b070"],["static/img/categories/Work.jpg","d336a4aa3b1437567b9bad4c30ab31cc"],["static/js/app.dd0f6adb2415cce41b53.js","99cb38515ea6e90be401c87099591a8f"],["static/js/manifest.2ae2e69a05c33dfc65f8.js","2f4fd3b092ed7f7e76dbb3976729742e"],["static/js/vendor.449e9fcce6d7f73697bf.js","aa1733a68a7aa64a9d7bdf73239458e2"]];
 var cacheName = 'sw-precache-v3-agenda-' + (self.registration ? self.registration.scope : '');
 
 
@@ -45,7 +45,7 @@ var ignoreUrlParametersMatching = [/^utm_/];
 
 
 
-var addDirectoryIndex = function (originalUrl, index) {
+var addDirectoryIndex = function(originalUrl, index) {
     var url = new URL(originalUrl);
     if (url.pathname.slice(-1) === '/') {
       url.pathname += index;
@@ -53,7 +53,7 @@ var addDirectoryIndex = function (originalUrl, index) {
     return url.toString();
   };
 
-var cleanResponse = function (originalResponse) {
+var cleanResponse = function(originalResponse) {
     // If this is not a redirected response, then we don't have to do anything.
     if (!originalResponse.redirected) {
       return Promise.resolve(originalResponse);
@@ -75,7 +75,7 @@ var cleanResponse = function (originalResponse) {
     });
   };
 
-var createCacheKey = function (originalUrl, paramName, paramValue,
+var createCacheKey = function(originalUrl, paramName, paramValue,
                            dontCacheBustUrlsMatching) {
     // Create a new URL object to avoid modifying originalUrl.
     var url = new URL(originalUrl);
@@ -91,7 +91,7 @@ var createCacheKey = function (originalUrl, paramName, paramValue,
     return url.toString();
   };
 
-var isPathWhitelisted = function (whitelist, absoluteUrlString) {
+var isPathWhitelisted = function(whitelist, absoluteUrlString) {
     // If the whitelist is empty, then consider all URLs to be whitelisted.
     if (whitelist.length === 0) {
       return true;
@@ -104,7 +104,7 @@ var isPathWhitelisted = function (whitelist, absoluteUrlString) {
     });
   };
 
-var stripIgnoredUrlParameters = function (originalUrl,
+var stripIgnoredUrlParameters = function(originalUrl,
     ignoreUrlParametersMatching) {
     var url = new URL(originalUrl);
     // Remove the hash; see https://github.com/GoogleChrome/sw-precache/issues/290

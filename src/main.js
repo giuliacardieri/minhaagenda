@@ -39,67 +39,7 @@ Vue.component('datepicker-mat', {
   mounted: function() {
     let instances = M.Datepicker.init(document.querySelectorAll('.datepicker'), {
       format: 'yyyy-mm-dd',
-      setDefaultDate: 'today',
-      i18n:  {
-        cancel: 'cancelar',
-        clear: 'limpar',
-        done: 'ok',
-        months: [
-          'Janeiro',
-          'Fevereiro',
-          'Março',
-          'Abril',
-          'Maio',
-          'Junho',
-          'Julho',
-          'Agosto',
-          'Setembro',
-          'Outubro',
-          'Novembro',
-          'Dezembro'
-        ],
-        monthsShort: [
-          'Jan',
-          'Fev',
-          'Mar',
-          'Abr',
-          'Mai',
-          'Jun',
-          'Jul',
-          'Ago',
-          'Set',
-          'Out',
-          'Nov',
-          'Dez'
-        ],
-        weekdays: [
-          'Segunda-feira',
-          'Terça-feira',
-          'Quarta-feira',
-          'Quinta-feira',
-          'Sexta-feira',
-          'Sábado',
-          'Domingo'
-        ],
-        weekdaysShort: [
-          'Seg',
-          'Ter',
-          'Qua',
-          'Qui',
-          'Sex',
-          'Sáb',
-          'Dom'
-        ],
-        weekdaysAbbrev: [
-        'S',
-        'T',
-        'Q',
-        'Q',
-        'S',
-        'S',
-        'D'
-        ]
-      },
+      setDefaultDate: 'today'
     });
   }
 })
@@ -108,12 +48,7 @@ Vue.component('timepicker', {
   template: '<input type="text" class="timepicker">',
   mounted: function (el) {
     var timepickerInstances = M.Timepicker.init(document.querySelectorAll('.timepicker'), {
-      twelveHour: false,
-      i18n:  {
-        cancel: 'cancelar',
-        clear: 'limpar',
-        done: 'ok'
-      },
+      twelveHour: false
     });
   }
 })

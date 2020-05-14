@@ -3,7 +3,7 @@
     <header>
       <nav class="header__app-bar">
         <div class="nav-wrapper">
-          <router-link to="/" class="nav-wrapper__a">Minha Agenda</router-link>
+          <router-link to="/" class="nav-wrapper__a">Calendar</router-link>
         </div>
       </nav>
     </header>
@@ -25,7 +25,7 @@
             <li class="ul__li" v-on:click="activeLink = 1" v-bind:class="{ active:  activeLink == 1 }">
               <router-link to="/mydesign" class="li__a">
                 <i class="material-icons a__icons">face</i>
-                <span class="a__span">Meu design</span>
+                <span class="a__span">My design</span>
               </router-link>
             </li>
           </ul>

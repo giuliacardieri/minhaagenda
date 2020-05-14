@@ -2,21 +2,21 @@
   <div>
     <div id="modalOptions" class="modal">
       <div class="modal-content">
-        <p>Você realmente deseja {{ action.name }} o evento "{{ event.name }}"?</p>
+        <p>Do you really want to {{ action.name }} the event "{{ event.name }}"?</p>
       </div>
       <div class="modal-footer">
-        <a href="#!"  class="modal-close waves-effect waves-green btn-flat">Não</a>
-        <a href="#!" v-on:click="actionCard(action.id, event.id)" class="modal-close waves-effect waves-green btn-flat">Sim</a>
+        <a href="#!"  class="modal-close waves-effect waves-green btn-flat">No</a>
+        <a href="#!" v-on:click="actionCard(action.id, event.id)" class="modal-close waves-effect waves-green btn-flat">Yes</a>
       </div>
     </div>
     <div class="main__app-bar-secondary">
-        <p class="app-bar-secondary__p grey-text text-darken-1">Hoje</p>
+        <p class="app-bar-secondary__p grey-text text-darken-1">Today</p>
     </div>
     <div  class="main__content-wrapper">
       <div class="row">
           <div v-if="db.length === 0 || isEmpty()" class="content-wrapper__empty-wrapper col s12 m12">
             <i class="material-icons medium empty-wrapper__icon">event_note</i>
-            <p class="empty-wrapper__p">Nenhum evento hoje</p>
+            <p class="empty-wrapper__p">No events today</p>
           </div>
           <template v-else>
             <div v-if="user[6].value === 1" class="cards-wrapper col s12 m4">
@@ -58,7 +58,7 @@
                     </span>
                     <p v-if="data.allday">
                       <i class="material-icons p__icon">schedule</i>
-                      O dia inteiro
+                      The entire day
                     </p>
                     <p v-if="data.time_start && data.time_end && !data.allday">
                       <i class="material-icons p__icon">schedule</i>
@@ -74,8 +74,8 @@
                     </p>
                   </div>
                   <div class="card-action">
-                    <a href="#" data-target="modalOptions" v-on:click="updateModal({id: data.id, name: data.title }, 1)" class="card-action__btn--completed card-action__btn--indigo-text modal-trigger">Finalizar</a>
-                    <a href="#" data-target="modalOptions" v-on:click="updateModal({id: data.id, name: data.title }, 0)" class="card-action__btn--cancel card-action__btn--indigo-text modal-trigger"">Cancelar</a>
+                    <a href="#" data-target="modalOptions" v-on:click="updateModal({id: data.id, name: data.title }, 1)" class="card-action__btn--completed card-action__btn--indigo-text modal-trigger">Finalize</a>
+                    <a href="#" data-target="modalOptions" v-on:click="updateModal({id: data.id, name: data.title }, 0)" class="card-action__btn--cancel card-action__btn--indigo-text modal-trigger">Cancel</a>
                   </div>
                 </v-touch>
               </div>
@@ -104,7 +104,7 @@
                       {{ data.time_start }} - {{ data.time_end }}
                     </span>
                     <span v-if="data.allday">
-                    O dia inteiro
+                    The entire day
                     </span>
                   </p>
                   <p class="collection__p">
@@ -157,10 +157,10 @@
         this.event.id = elem.id;
         this.event.name = elem.name;
 
-        if (type === 'swipeleft')
-         this.action.name = 'cancelar';
+        if (type === 'swipeleft' || type === 0)
+         this.action.name = 'cancel';
         else
-         this.action.name = 'finalizar';
+         this.action.name = 'finalize';
 
         modal.open();
       },
@@ -169,10 +169,10 @@
 
         if (type === 'swipeleft') {
           sorted_db[id].canceled = 1;
-          M.toast({html: 'Evento cancelado'})
+          M.toast({html: 'Canceled event'})
         } else {
           sorted_db[id].completed = 1;
-          M.toast({html: 'Evento finalizado'})
+          M.toast({html: 'Finalized event'})
         }
         
         sorted_db = this.sortDB(sorted_db, 'time_start');

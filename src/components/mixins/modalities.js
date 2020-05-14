@@ -3,7 +3,7 @@ export const modalities = {
     startSpeech: function(element) {
       var speak = new webkitSpeechRecognition();
 
-      speak.lang = 'pt-BR';
+      speak.lang = 'en-US';
 
       speak.start();
 
@@ -33,7 +33,7 @@ export const modalities = {
     },
     speechSynthesis: function(text) {
       var synth = new SpeechSynthesisUtterance(text);
-      synth.lang = 'pt-BR';
+      synth.lang = 'en-US';
       window.speechSynthesis.speak(synth);
     },
     activateSwipe: function(type, id) {

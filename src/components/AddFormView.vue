@@ -3,7 +3,7 @@
 	  <header>
       <nav class="header__app-bar">
         <div class="nav-wrapper">
-          <router-link to="/" class="nav-wrapper__a"><i class="waves-effect material-icons a__icon">arrow_back</i>Adicionar evento</router-link>
+          <router-link to="/" class="nav-wrapper__a"><i class="waves-effect material-icons a__icon">arrow_back</i>Add event</router-link>
         </div>
       </nav>
     </header>
@@ -14,40 +14,40 @@
             <div class="input-field input-elem-group col s12">
               <input id="title" name="title" type="text" class="input-elem-group__input validate" v-bind:class="{ 'browser-default': user[2].value == 2}" v-model="data.title">
               <i class="speech-elem material-icons input-field__speech-icon" v-if="user[5].value === 2" v-on:click="onSpeak('title')" >mic</i>
-              <label for="title" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Título</label>
+              <label for="title" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Title</label>
             </div>
           </div>
           <div class="row datepicker-elem-group--material" v-if="user[1].value === 1">
             <div class="input-field input-elem-group col s12">
               <datepicker-mat id="date" name="date" class="input-elem-group__input datepicker-elem validate" v-model="data.date"></datepicker-mat>
-              <label for="date" class="input-elem-group__label">Data</label>
+              <label for="date" class="input-elem-group__label">Date</label>
             </div>
           </div>
           <div class="row datepicker-elem-group--browser-default" v-if="user[1].value === 2">
             <div class="input-field input-elem-group col s12">
               <input id="date" name="date" type="date" class="input-elem-group__input datepicker-elem validate" v-bind:class="{ 'browser-default': user[2].value == 2}" v-model="data.date">
-              <label for="date" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Data</label>
+              <label for="date" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Date</label>
             </div>
           </div>
           <div class="row timepicker-elem-group--material" v-if="user[4].value === 1">
             <div class="input-field input-elem-group col s6">
               <timepicker id="time_from" name="time_start" type="text" class="input-elem-group__input" v-bind:class="{ 'browser-default': user[2].value == 2}" v-model="data.time_start"></timepicker>
-              <label for="time_from" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Horário de início</label>
+              <label for="time_from" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Start time</label>
             </div>
             <div class="input-field input-elem-group col s6">
               <timepicker id="time_to" name="time_end" type="text" class="input-elem-group__input" v-bind:class="{ 'browser-default': user[2].value == 2}" v-model="data.time_end"></timepicker>
-              <label for="time_to" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Horário de término</label>
+              <label for="time_to" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">End time</label>
             </div>
           </div>
           <div class="timepicker-elem-group--browser-default" v-if="user[4].value === 2">
             <div class="row">
               <div class="input-field input-elem-group col s6">
                 <input id="time_from" name="time_start" type="time" class="input-elem-group__input" v-bind:class="{ 'browser-default': user[2].value == 2}" v-model="data.time_start">
-                <label for="time_from" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Horário de início</label>
+                <label for="time_from" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Start time</label>
               </div>
               <div class="input-field input-elem-group col s6">
                 <input id="time_to" name="time_end" type="time" class="input-elem-group__input" v-bind:class="{ 'browser-default': user[2].value == 2}" v-model="data.time_end">
-                <label for="time_to" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Horário de término</label>
+                <label for="time_to" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">End time</label>
               </div>
             </div>
           </div>
@@ -55,21 +55,21 @@
             <p class="col s6">
               <label for="allday">
                 <input type="checkbox" name="allday" id="allday" v-model="data.allday" />
-                <span>Dia todo</span>
+                <span>All day</span>
               </label>
             </p>
           </div>
           <div class="row checkbox-elem--browser-default" v-if="user[0].value === 2">
             <div class="col s12">
               <input type="checkbox" name="allday" id="allday" class="checkbox-html" v-model="data.allday" />
-              <label for="allday">Dia todo</label>
+              <label for="allday">All day</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field input-elem-group col s12">
               <input id="location" name="location" type="text" class="validate input-elem-group__input" v-bind:class="{ 'browser-default': user[2].value == 2}" v-model="data.location" required>
               <i class="speech-elem material-icons input-field__speech-icon" v-on:click="onSpeak('location')" v-if="user[5].value === 2">mic</i>
-              <label for="location" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Local</label>
+              <label for="location" class="input-elem-group__label" v-bind:class="{ 'browser-default': user[2].value == 2}">Location</label>
             </div>
           </div>
           <div class="row">
@@ -79,7 +79,7 @@
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <button to="/" class="right waves-effect waves-light btn" v-on:click.prevent="submit()" v-bind:class="{ disabled: isValid() == 0 }" type="submit">Salvar</button>
+              <button to="/" class="right waves-effect waves-light btn" v-on:click.prevent="submit()" v-bind:class="{ disabled: isValid() == 0 }" type="submit">Save</button>
             </div>
           </div>
         </form>

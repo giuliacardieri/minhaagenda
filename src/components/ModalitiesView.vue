@@ -16,17 +16,17 @@
 	              <span class="collapsible-header__span-speech-1 collapsible-header__span">
 	                <i class="material-icons collapsible-header__icon">done</i>
 	              </span>
-	              Bloquear reconhecimento de voz
+	              Block voice recognition
 	            </div>
 	            <div class="collapsible-body">
 	              <div class="input-field">
 	                <input type="text" name="speech-type1">
-	                <label for="speech-type1">Digite seu texto</label>
+	                <label for="speech-type1">Type your text</label>
 	              </div>
 	              <div class="right-align">
 	                <button v-on:click="activate(5,1)" v-bind:class="{ chosen: user[5].value === 1 }" class="speech-1 btn btn-wrapper__btn-choose waves-effect">
-			            	<span class="span__chosen">Escolhido</span>
-			            	<span class="span__choose">Escolher</span>
+			            	<span class="span__chosen">Chosen</span>
+			            	<span class="span__choose">Choose</span>
 			            </button>
 	              </div>
 	            </div>
@@ -36,18 +36,18 @@
 	              <span class="collapsible-header__span-speech-2 collapsible-header__span">
 	                <i class="material-icons collapsible-header__icon">done</i>
 	              </span>
-	              Permitir reconhecimento de voz
+	              Allow voice recognition
 	            </div>
 	            <div class="collapsible-body">
 	              <div class="input-field input-elem-group">
 	                <input id="test" type="text" name="speech-type2" class="input-elem-group__input input-test">
 	                <i class="speech-elem speech-test material-icons input-field__speech-icon" v-on:click="onSpeak('test')">mic</i>
-	                <label for="speech-type2" class="input-elem-group__label input-test">Clique no microfone para usar voz</label>
+	                <label for="speech-type2" class="input-elem-group__label input-test">Click on the microphone to use voice</label>
 	              </div>
 	              <div class="right-align">
 	                <button v-on:click="activate(5,2)" v-bind:class="{ chosen: user[5].value === 2 }"  class="speech-2 btn btn-wrapper__btn-choose waves-effect">
-			            	<span class="span__chosen">Escolhido</span>
-			            	<span class="span__choose">Escolher</span>
+			            	<span class="span__chosen">Chosen</span>
+			            	<span class="span__choose">Choose</span>
 			            </button>
 	              </div>
 	            </div>
@@ -63,23 +63,23 @@
 	              <span class="collapsible-header__span-swipe-1 collapsible-header__span">
 	                <i class="material-icons collapsible-header__icon">done</i>
 	              </span>
-	              Bloquear movimento swipe
+	              Block swipe movement
 	            </div>
 	            <div class="collapsible-body">
 	              <div class="row">
 	                <div class="cards-wrapper col s12 m6">
 	                  <div class="cards-wrapper__card card">
 	                    <div class="card-content">
-	                      <span class="card-title">Um cartão</span>
-	                      <p>Esse cartão não permite o movimento swipe.</p>
+	                      <span class="card-title">A card</span>
+	                      <p>This card doesn't allow swipe movement.</p>
 	                    </div>
 	                  </div>
 	                </div>
 	              </div>
 	              <div class="right-align">
 	                <button v-on:click="activate(9,1)" v-bind:class="{ chosen: user[9].value === 1 }"  class="swipe-1 btn btn-wrapper__btn-choose waves-effect" data-icon="swipe-1">
-			            	<span class="span__chosen">Escolhido</span>
-			            	<span class="span__choose">Escolher</span>
+			            	<span class="span__chosen">Chosen</span>
+			            	<span class="span__choose">Choose</span>
 	                </button>
 	              </div>
 	            </div>
@@ -89,24 +89,24 @@
 	              <span class="collapsible-header__span-swipe-2 collapsible-header__span">
 	                <i class="material-icons collapsible-header__icon">done</i>
 	              </span>
-	              Permitir movimento swipe
+	              Allow swipe movement
 	            </div>
 	            <div class="collapsible-body">
 	              <div class="row">
 	                <div class="cards-wrapper col s12 m6">
 	                  <v-touch v-bind:swipe-options="{ direction:'horizontal' }" id="card-test" class="cards-wrapper__card card" v-on:swiperight="activateSwipe(2, 2, 'test');" v-on:swipeleft="activateSwipe(1, 2, 'test')">
 	                    <div class="card-content">
-	                      <span class="card-title">Um cartão</span>
-	                      <p>Para <span class="bold-text">cancelar</span> um evento, faça o movimento para esquerda.</p>
-	                      <p>Para <span class="bold-text">finalizar</span> um evento, faça o movimento para direita.</p>
+	                      <span class="card-title">A card</span>
+	                      <p>To <span class="bold-text">cancel</span> an event, swipe left.</p>
+	                      <p>To <span class="bold-text">finalize</span> an event, swipe right.</p>
 	                    </div>
 	                  </v-touch>
 	                </div>
 	              </div>
 	              <div class="right-align">
 	                <button v-on:click="activate(9,2)" v-bind:class="{ chosen: user[9].value === 2 }"  class="swipe-2 btn btn-wrapper__btn-choose waves-effect">
-			            	<span class="span__chosen">Escolhido</span>
-			            	<span class="span__choose">Escolher</span>
+			            	<span class="span__chosen">Chosen</span>
+			            	<span class="span__choose">Choose</span>
 			            </button>
 	              </div>
 	            </div>
@@ -122,15 +122,15 @@
 	              <span class="collapsible-header__span-voice-1 collapsible-header__span">
 	                <i class="material-icons collapsible-header__icon">done</i>
 	              </span>
-	              Bloquar o uso de ditação de voz
+	              Block voice synthesis
 	            </div>
 	            <div class="collapsible-body">
-	              <h3>Um título</h3>
-	              <p>Que não permite o uso de ditação de voz ao clicar no ícone.</p>
+	              <h3>A title</h3>
+	              <p>This title doesn't allow voice synthesis when the icon is touched.</p>
 	              <div class="right-align">
 	                <button v-on:click="activate(8,1)" v-bind:class="{ chosen: user[8].value === 1 }"  class="voice-1 btn btn-wrapper__btn-choose waves-effect">
-			            	<span class="span__chosen">Escolhido</span>
-			            	<span class="span__choose">Escolher</span>
+			            	<span class="span__chosen">Chosen</span>
+			            	<span class="span__choose">Choose</span>
 			            </button>
 	              </div>
 	            </div>
@@ -140,18 +140,18 @@
 	              <span class="collapsible-header__span-voice-2 collapsible-header__span">
 	                <i class="material-icons collapsible-header__icon">done</i>
 	              </span>
-	              Permitir o uso de ditação de voz
+	              Allow voice synthesis
 	            </div>
 	            <div class="collapsible-body">
 	              <h3>
-	              	Um título
+	              	A title
 	              	<i class="material-icons voice-icon" v-on:click="speechSynthesis('Um título, que permite o uso de ditação de voz ao clicar no ícone.')">volume_up</i>
 	              </h3>
-	              <p>Que permite o uso de ditação de voz ao clicar no ícone.</p>
+	              <p>This title allows voice synthesis when the icon is touched.</p>
 	              <div class="right-align">
 	                <button v-on:click="activate(8,2)" v-bind:class="{ chosen: user[8].value === 2 }"  class="voice-2 btn btn-wrapper__btn-choose waves-effect">
-			            	<span class="span__chosen">Escolhido</span>
-			            	<span class="span__choose">Escolher</span>
+			            	<span class="span__chosen">Chosen</span>
+			            	<span class="span__choose">Choose</span>
 			            </button>
 	              </div>
 	            </div>

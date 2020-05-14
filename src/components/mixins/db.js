@@ -30,19 +30,19 @@ export const db = {
     },
     getCategories: function() {
       let categories = [
-        { id: 0, name: 'Exercício' },
-        { id: 1, name: 'Família' },
-        { id: 2, name: 'Casa' },
-        { id: 3, name: 'Comida' },
-        { id: 4, name: 'Compras' },
-        { id: 5, name: 'Estudo' },
-        { id: 6, name: 'Outros' },
-        { id: 7, name: 'Pessoal' },
+        { id: 0, name: 'Exercise' },
+        { id: 1, name: 'Family' },
+        { id: 2, name: 'Home' },
+        { id: 3, name: 'Food' },
+        { id: 4, name: 'Shopping' },
+        { id: 5, name: 'Study' },
+        { id: 6, name: 'Other' },
+        { id: 7, name: 'Personal' },
         { id: 8, name: 'Pets' },
-        { id: 9, name: 'Saúde' },
+        { id: 9, name: 'Health' },
         { id: 10, name: 'Social' },
-        { id: 11, name: 'Trabalho' },
-        { id: 12, name: 'Viagem' }
+        { id: 11, name: 'Work' },
+        { id: 12, name: 'Travel' }
       ];
 
       return categories;
@@ -60,13 +60,13 @@ export const db = {
         let db = [
           {
             'id': 0,
-            'title': 'Ir ao supermercado',
+            'title': 'Go to the supermarket',
             'date': today,
-            'time_start': '17:00',
-            'time_end': '19:00',
-            'location': 'Mercado do zé',
+            'time_start': '5:00',
+            'time_end': '7:00',
+            'location': 'Market',
             'icon': 'local_mall',
-            'category': 'Compras',
+            'category': 'Shopping',
             'completed': 0,
             'canceled': 0,
             'allday': false
@@ -101,19 +101,19 @@ export const db = {
         }
 
         switch(final_data.category) {
-          case 'Exercício': final_data.icon = 'fitness_center'; break;
-          case 'Família': final_data.icon = 'child_care'; break;
-          case 'Comida': final_data.icon = 'restaurant'; break;
-          case 'Saúde': final_data.icon = 'local_hospital'; break;
-          case 'Casa': final_data.icon = 'home'; break;
-          case 'Pessoal': final_data.icon = 'face'; break;
+          case 'Exercise': final_data.icon = 'fitness_center'; break;
+          case 'Family': final_data.icon = 'child_care'; break;
+          case 'Food': final_data.icon = 'restaurant'; break;
+          case 'Health': final_data.icon = 'local_hospital'; break;
+          case 'Home': final_data.icon = 'home'; break;
+          case 'Personal': final_data.icon = 'face'; break;
           case 'Pets': final_data.icon = 'pets'; break;
-          case 'Estudo': final_data.icon = 'school'; break;
-          case 'Compras': final_data.icon = 'local_mall'; break;
+          case 'Study': final_data.icon = 'school'; break;
+          case 'Shopping': final_data.icon = 'local_mall'; break;
           case 'Social': final_data.icon = 'people'; break;
-          case 'Outros': final_data.icon = 'info'; break;
-          case 'Viagem': final_data.icon = 'flight_land'; break;
-          case 'Trabalho': final_data.icon = 'work'; break;
+          case 'Other': final_data.icon = 'info'; break;
+          case 'Travel': final_data.icon = 'flight_land'; break;
+          case 'Work': final_data.icon = 'work'; break;
         }
 
         db.push(final_data);

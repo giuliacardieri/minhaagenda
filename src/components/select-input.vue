@@ -1,10 +1,10 @@
 <template> 
 	<section>
 		<select v-bind:class="{ select_material: user[3].value === 1 || isMaterial, 'browser-default': user[3].value === 2 || isDefault }">
-			<option value="" disabled selected>Escolha sua categoria</option>
+			<option value="" disabled selected>Choose your category</option>
 			<option v-for="category in categories" :key="category.id" :value="category.id">{{ category.name }}</option>
 		</select>
-	   <label v-if="user[3].value === 1 && !isDefault" for="category" class="select-elem__label">Categoria</label>
+	   <label v-if="user[3].value === 1 && !isDefault" for="category" class="select-elem__label">Category</label>
 	 </section>
 </template>
 

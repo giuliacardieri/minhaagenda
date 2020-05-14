@@ -3,10 +3,10 @@
 		<div class="header__tabs col s12">
 		    <ul class="tabs tabs-fixed-width tabs__ul" v-tabs>
 		      <li class="tab col s3 ul__li"><a class="li__a active" href="#checkbox">Checkbox</a></li>
-		      <li class="tab col s3 ul__li"><a class="li__a" href="#datepicker">Calendário</a></li>
+		      <li class="tab col s3 ul__li"><a class="li__a" href="#datepicker">Datepicker</a></li>
 		      <li class="tab col s3 ul__li"><a class="li__a" href="#input">Input</a></li>
-		      <li class="tab col s3 ul__li"><a class="li__a" href="#select">Múltipla escolha</a></li>
-		      <li class="tab col s3 ul__li"><a class="li__a" href="#timepicker">Seletor de horário</a></li>
+		      <li class="tab col s3 ul__li"><a class="li__a" href="#select">Select</a></li>
+		      <li class="tab col s3 ul__li"><a class="li__a" href="#timepicker">Timepicker</a></li>
 		    </ul>
 		</div>  
 		<div class="row">
@@ -29,8 +29,8 @@
 			          </p>
 			          <div class="collapsible-body__btn-wrapper right-align">
 			            <button v-on:click="activate(0,1)" v-bind:class="{ chosen: user[0].value === 1 }" class="checkbox-1 btn btn-wrapper__btn-choose waves-effect">
-			            	<span class="span__chosen">Escolhido</span>
-			            	<span class="span__choose">Escolher</span>
+			            	<span class="span__chosen">Chosen</span>
+			            	<span class="span__choose">Choose</span>
 			            </button>
 			          </div>
 			        </div>
@@ -49,8 +49,8 @@
 			          </div>
 			          <div class="collapsible-body__btn-wrapper right-align">
 			            <button v-on:click="activate(0,2)" v-bind:class="{ chosen: user[0].value === 2 }" class="checkbox-2 btn btn-wrapper__btn-choose  waves-effect">
-			            	<span class="span__chosen">Escolhido</span>
-			            	<span class="span__choose">Escolher</span>
+			            	<span class="span__chosen">Chosen</span>
+			            	<span class="span__choose">Choose</span>
 			            </button>
 			          </div>
 			        </div>
@@ -66,17 +66,17 @@
 			          <span class="collapsible-header__span-datepicker-1 collapsible-header__span">
 			            <i class="material-icons collapsible-header__icon">done</i>
 			          </span>
-			          Calendário 1
+			          Datepicker 1
 			        </div>
 			        <div class="collapsible-body">
 			          <div class="input-field">
 			            <datepicker-mat class="datepicker-test" name="datepicker-type1"></datepicker-mat>
-			            <label for="datepicker-type1">Definir data</label>
+			            <label for="datepicker-type1">Choose date</label>
 			          </div>
 			          <div class="right-align">
 			            <button v-on:click="activate(1,1)" v-bind:class="{ chosen: user[1].value === 1 }" class="datepicker-1 btn btn-wrapper__btn-choose waves-effect">
-			            	<span class="span__chosen">Escolhido</span>
-			            	<span class="span__choose">Escolher</span>
+			            	<span class="span__chosen">Chosen</span>
+			            	<span class="span__choose">Choose</span>
 			            </button>
 			          </div>
 			        </div>
@@ -86,17 +86,17 @@
 			          <span class="collapsible-header__span-datepicker-2 collapsible-header__span">
 			            <i class="material-icons collapsible-header__icon">done</i>
 			          </span>
-			          Calendário 2
+			          Datepicker 2
 			        </div>
 			        <div class="collapsible-body">
 			          <div class="input-field">
 			            <input type="date" name="datepicker-type2">
-			            <label for="datepicker-type2">Definir data</label>
+			            <label for="datepicker-type2">Choose date</label>
 			          </div>
 			          <div class="right-align">
 			            <button v-on:click="activate(1,2)" v-bind:class="{ chosen: user[1].value === 2 }" class="datepicker-2 btn btn-wrapper__btn-choose waves-effect">
-			            	<span class="span__chosen">Escolhido</span>
-			            	<span class="span__choose">Escolher</span>
+			            	<span class="span__chosen">Chosen</span>
+			            	<span class="span__choose">Choose</span>
 			            </button>
 			          </div>
 			        </div>
@@ -117,12 +117,12 @@
 			        <div class="collapsible-body">
 			          <div class="input-field">
 			            <input type="text" name="input-type1">
-			            <label for="input-type1">Texto</label>
+			            <label for="input-type1">Text</label>
 			          </div>
 			          <div class="right-align">
 			            <button v-on:click="activate(2,1)" v-bind:class="{ chosen: user[2].value === 1 }" class="input-1 btn btn-wrapper__btn-choose waves-effect">
-			            	<span class="span__chosen">Escolhido</span>
-			            	<span class="span__choose">Escolher</span>
+			            	<span class="span__chosen">Chosen</span>
+			            	<span class="span__choose">Choose</span>
 			            </button>
 			          </div>
 			        </div>
@@ -137,12 +137,12 @@
 			        <div class="collapsible-body">
 			          <div class="input-field input-elem-group">
 			            <input type="text" name="input-type2" class="input-elem-group__input input-test browser-default" placeholder="Type text here">
-			            <label for="input-type2" class="input-elem-group__label input-test browser-default">Texto</label>
+			            <label for="input-type2" class="input-elem-group__label input-test browser-default">Text</label>
 			          </div>
 			          <div class="right-align">
 			            <button v-on:click="activate(2,2)" v-bind:class="{ chosen: user[2].value === 2 }" class="input-2 btn btn-wrapper__btn-choose waves-effect">
-			            	<span class="span__chosen">Escolhido</span>
-			            	<span class="span__choose">Escolher</span>
+			            	<span class="span__chosen">Chosen</span>
+			            	<span class="span__choose">Choose</span>
 			            </button>
 			          </div>
 			        </div>
@@ -158,7 +158,7 @@
 			          <span class="collapsible-header__span-select-1 collapsible-header__span">
 			            <i class="material-icons collapsible-header__icon">done</i>
 			          </span>
-			          Múltipla escolha 1
+			          Select 1
 			        </div>
 			        <div class="collapsible-body">
 			          <div class="input-field">    
@@ -166,8 +166,8 @@
 			          </div>
 			          <div class="right-align">
 			            <button v-on:click="activate(3,1)" v-bind:class="{ chosen: user[3].value === 1 }" class="select-1 btn btn-wrapper__btn-choose waves-effect">
-			            	<span class="span__chosen">Escolhido</span>
-			            	<span class="span__choose">Escolher</span>
+			            	<span class="span__chosen">Chosen</span>
+			            	<span class="span__choose">Choose</span>
 			            </button>
 			          </div>
 			        </div>
@@ -177,7 +177,7 @@
 			          <span class="collapsible-header__span-select-2 collapsible-header__span">
 			            <i class="material-icons collapsible-header__icon">done</i>
 			          </span>
-			          Múltipla escolha 2
+			          Select 2
 			        </div>
 			        <div class="collapsible-body">
 			          <div class="input-field">
@@ -185,8 +185,8 @@
 			          </div>
 			          <div class="right-align">
 			            <button v-on:click="activate(3,2)" v-bind:class="{ chosen: user[3].value === 2 }" class="select-2 btn btn-wrapper__btn-choose  waves-effect">
-			            	<span class="span__chosen">Escolhido</span>
-			            	<span class="span__choose">Escolher</span>
+			            	<span class="span__chosen">Chosen</span>
+			            	<span class="span__choose">Choose</span>
 			            </button>
 			          </div>
 			        </div>
@@ -202,17 +202,17 @@
 			          <span class="collapsible-header__span-timepicker-1 collapsible-header__span">
 			            <i class="material-icons collapsible-header__icon">done</i>
 			          </span>
-			          Seletor de horário 1
+			          Timepicker 1
 			        </div>
 			        <div class="collapsible-body">
 			          <div class="input-field">
 			            <timepicker type="text" name="timepicker-type1" /></timepicker>
-			            <label for="timepicker-type1">Horário</label>
+			            <label for="timepicker-type1">Time</label>
 			          </div>
 			          <div class="right-align">
 			            <button v-on:click="activate(4,1)" v-bind:class="{ chosen: user[4].value === 1 }" class="timepicker-1 btn btn-wrapper__btn-choose waves-effect">
-			            	<span class="span__chosen">Escolhido</span>
-			            	<span class="span__choose">Escolher</span>
+			            	<span class="span__chosen">Chosen</span>
+			            	<span class="span__choose">Choose</span>
 			           	</button>
 			          </div>
 			        </div>
@@ -222,17 +222,17 @@
 			          <span class="collapsible-header__span-timepicker-2 collapsible-header__span">
 			            <i class="material-icons collapsible-header__icon">done</i>
 			          </span>
-			          Seletor de horário 2
+			          Timepicker 2
 			        </div>
 			        <div class="collapsible-body">
 			          <div class="input-field col s6">
 			            <input type="time" name="timepicker-type2">
-			            <label for="timepicker-type2">Horário</label>
+			            <label for="timepicker-type2">Time</label>
 			          </div>
 			          <div class="right-align">
 			            <button v-on:click="activate(4,2)" v-bind:class="{ chosen: user[4].value === 2}" class="timepicker-2 btn btn-wrapper__btn-choose waves-effect">
-			            	<span class="span__chosen">Escolhido</span>
-			            	<span class="span__choose">Escolher</span>
+			            	<span class="span__chosen">Chosen</span>
+			            	<span class="span__choose">Choose</span>
 			            </button>
 			          </div>
 			        </div>
@@ -242,7 +242,7 @@
 			</div>
 		</div>
 		<div class="row template__button-wrapper">
-			<router-link to="/mydesign" class="btn button-wrapper__btn--back button-wrapper__btn--indigo">Voltar</router-link>
+			<router-link to="/mydesign" class="btn button-wrapper__btn--back button-wrapper__btn--indigo">Back</router-link>
 		</div>
 	</div>
 </template>
